@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap_icons %}
 {% comment %} {% load bootstrap_icons %} {% endcomment %}
 
 <header class="bg-dark bg-gradient">
@@ -6,7 +7,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
-                <p class="fs-2">Cetta</p>
+                <p class="fs-2">{% bs_icon 'house-door' %}Cetta</p>
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +29,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="calzado.html">Calzado</a></li>
-                      <li><a class="dropdown-item" href="vestidos.html">Vestidos</a></li>
+                      <li><a class="dropdown-item" href="vestidos.html">{% bs_icon 'person-standing-dress' %}Vestidos</a></li>
                       <!-- <li><hr class="dropdown-divider"></li> -->
                       <li><a class="dropdown-item" href="jeans.html">Jeans</a></li>
                     </ul>
