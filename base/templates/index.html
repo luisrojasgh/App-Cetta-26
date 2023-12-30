@@ -39,7 +39,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <p class="fs-5">¡No te pierdas nuestra gran oferta de descuento! Descubre una selección de productos de alta calidad a precios increíbles; tenemos todo lo que necesitas. ¡Aprovecha estos descuentos limitados y renueva tu estilo al mejor precio! ¡Compra ahora antes de que se agoten!<p>
+                    {% for info in info_descuento%}
+                    <p class="fs-5">{{info.descripcion}}<p>    
+                    {% endfor %}
+                    
                     <a href="#"><img class="img-fluid rounded-3"src="img/producto_descuento.PNG" alt="Jean para dama"></a> 
                 </div>
                 <div class="col-6">

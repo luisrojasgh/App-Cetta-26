@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
-from configuracion.models import Slider
+from configuracion.models import Slider, DescuentoInformacion
 
 def principal(request):
     titulo="Bienvenid@s"
     sliders= Slider.objects.filter(estado=True)
+    info_descuento= DescuentoInformacion.objects.filter(estado=True)
     # productos= Producto.objects.all()
     context={
         "titulo": titulo,
         "sliders": sliders,
+        "info_descuento":info_descuento
         # "productos":productos 
     }
     return render(request, "index.html", context)
