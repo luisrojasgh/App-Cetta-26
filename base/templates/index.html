@@ -43,7 +43,10 @@
                     <p class="fs-5">{{info.descripcion}}<p>    
                     {% endfor %}
                     
-                    <a href="#"><img class="img-fluid rounded-3"src="img/producto_descuento.PNG" alt="Jean para dama"></a> 
+                    <a href="#">
+                      {% for info in info_descuento%}
+                        <img class="img-fluid rounded-3"src="{{ info.imagen.url }}" alt="Jean para dama"></a>
+                      {% endfor %}
                 </div>
                 <div class="col-6">
                     <a href="#"><img class="img-fluid"src="img/jeans-1.jpg" alt="Jean para dama"></a>

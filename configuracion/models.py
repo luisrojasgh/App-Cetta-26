@@ -15,6 +15,7 @@ class Slider(models.Model):
 class DescuentoInformacion(models.Model):
     nombre= models.CharField(max_length=45,verbose_name="Nombre")
     descripcion= models.CharField(max_length=200,verbose_name="Descripción",blank=True, null=True)
+    imagen = models.ImageField(upload_to='descuentos_images/')
     estado = models.BooleanField(default=True)
 
     def __str__(self):
