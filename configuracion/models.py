@@ -20,3 +20,11 @@ class DescuentoInformacion(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class DescuentoImagen(models.Model):
+    nombre= models.CharField(max_length=45,verbose_name="Nombre")
+    imagen = models.ImageField(upload_to='Img-descuentos_images/')
+    estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre

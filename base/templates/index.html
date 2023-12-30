@@ -49,7 +49,9 @@
                       {% endfor %}
                 </div>
                 <div class="col-6">
-                    <a href="#"><img class="img-fluid"src="img/jeans-1.jpg" alt="Jean para dama"></a>
+                  {% for img in imagenes%}
+                    <a href="#"><img class="img-fluid"src="{{ img.imagen.url }}" alt="Jean para dama"></a>
+                  {% endfor %}
                 </div>
 
             </div>
