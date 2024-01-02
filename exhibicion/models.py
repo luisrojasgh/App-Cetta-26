@@ -34,6 +34,10 @@ class Producto(models.Model):
     talla = models.CharField(max_length=4, choices=Talla.choices, verbose_name="Talla", default=Talla.TALLA_S)
     imagen = models.ImageField(upload_to='productos/', null=True, blank=True)
 
+    class Meta:
+        verbose_name='producto'
+        verbose_name_plural='productos'
+
     def __str__(self):
         return self.nombre
     
