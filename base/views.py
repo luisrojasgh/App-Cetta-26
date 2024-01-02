@@ -13,7 +13,7 @@ def principal(request):
         "sliders": sliders,
         "info_descuento": info_descuento,
         "imagenes": imagenes,
-        "producto_index": producto_index
+        "producto_index": producto_index,
         # "productos":productos 
     }
     return render(request, "index.html", context)

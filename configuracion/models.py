@@ -53,13 +53,21 @@ class ProductoIndex(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=60, verbose_name="Nombre")
     descripcion = models.TextField()
-    descuento = models.DecimalField(max_digits=2, decimal_places=1)
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    descuento = models.DecimalField(max_digits=3, decimal_places=1)
+    precio = models.DecimalField(max_digits=10, decimal_places=1)
     referencia = models.CharField(max_length=50)
     estado = models.BooleanField(default=True)
     categoria = models.CharField(max_length=20, choices=Categoria.choices, verbose_name="Categoría", default=Categoria.CALZADO)
     talla = models.CharField(max_length=4, choices=Talla.choices, verbose_name="Talla", default=Talla.TALLA_S)
     imagen = models.ImageField(upload_to='productos_index/', null=True, blank=True)
+
+    def precio_con_descuento(self):
+        # Calcular el precio con el descuento aplicado
+        if self.descuento > 0:
+            precio_total = (self.precio)-((self.precio*self.descuento)/100)
+        else:
+            precio_total = self.precio
+        return precio_total
 
     
     def __str__(self):

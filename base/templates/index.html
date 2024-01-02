@@ -72,7 +72,13 @@
           <div class="card-body">
             <h5 class="card-title">{{prod.nombre}}</h5>
             <p class="card-text">{{prod.descripcion}}</p>
-            <p class="fs-3 text-dark">$ {{prod.precio}}</p>
+            {% if prod.descuento > 0%}
+              <p class="fs-4 text-danger display-2">Antes $<del>{{prod.precio}}</del></p>
+              <p class="fs-3 text-dark">Ahora $ {{prod.precio_con_descuento}}</p>
+            {% else %}
+              <p class="fs-3 text-dark">$ {{prod.precio}}</p>
+            {% endif %}
+            
             <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
           </div>
         </div>
