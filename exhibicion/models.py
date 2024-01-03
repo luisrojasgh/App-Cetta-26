@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+# Modelo para la exhibición general de productos.
 
 class Producto(models.Model):
     class Categoria(models.TextChoices):

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from configuracion.models import Slider, DescuentoInformacion, DescuentoImagen, ProductoIndex
 
+# Función para renderizar el contexto en index.html
 def principal(request):
     titulo="Bienvenid@s"
     sliders= Slider.objects.filter(estado=True)
