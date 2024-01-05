@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+# Modelo Slider para configurar el Slider del index. 
 class Slider(models.Model):
     nombre= models.CharField(max_length=45,verbose_name="Nombre")
     # descripcion= models.CharField(max_length=200,verbose_name="Descripción",blank=True, null=True)
@@ -12,7 +12,7 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.nombre
-
+# Modelo para configurar la información de la sección descuentos del index.
 class DescuentoInformacion(models.Model):
     nombre= models.CharField(max_length=45,verbose_name="Nombre")
     descripcion= models.CharField(max_length=200,verbose_name="Descripción",blank=True, null=True)
@@ -21,7 +21,7 @@ class DescuentoInformacion(models.Model):
 
     def __str__(self):
         return self.nombre
-
+# Modelo para configurar las imágenes de la sección descuentos del index.
 class DescuentoImagen(models.Model):
     nombre= models.CharField(max_length=45,verbose_name="Nombre")
     imagen = models.ImageField(upload_to='Img-descuentos_images/')
@@ -29,7 +29,7 @@ class DescuentoImagen(models.Model):
 
     def __str__(self):
         return self.nombre
-
+# Modelo para configurar la sección productos del index.
 class ProductoIndex(models.Model):
     class Categoria(models.TextChoices):
         CALZADO = 'CALZADO', _('Calzado')
@@ -62,7 +62,7 @@ class ProductoIndex(models.Model):
     imagen = models.ImageField(upload_to='productos_index/', null=True, blank=True)
 
     def precio_con_descuento(self):
-        # Calcular el precio con el descuento aplicado
+        # Calcular el precio con el descuento aplicado.
         if self.descuento > 0:
             precio_total = (self.precio)-((self.precio*self.descuento)/100)
         else:
