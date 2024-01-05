@@ -10,4 +10,4 @@ def productos_mostrar(request):
         "titulo": titulo,
         #"productos":productos 
     }
-    return render(request, "index.html", context)
+    return render(request, "productos.html", context)

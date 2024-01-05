@@ -1,0 +1,48 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<section class="servicios">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/tacones_1.jpg" class="object-fit-md" class="card-img-top" alt="tacones de mujer">
+            <div class="card-body">
+              <h5 class="card-title">Tacones Romance</h5>
+              <p class="card-text">Zapato de tacón con detalle de tacón curvado, pulsera al frente, Acabado en punta. Tacones de calidad, mezcla channel.</p>
+              <p class="fs-4 text-danger display-2"><del>$ 30.000</del></p>
+              <p class="fs-4 text-info display-4">30 % de descuento</p>
+              <p class="fs-3 text-dark">$ 21.000</p>
+              <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/jacket_1.jpg" class="object-fit-md" class="card-img-top" alt="Chaqueta de mujer">
+            <div class="card-body">
+              <h5 class="card-title">Chaqueta indigo 1</h5>
+              <p class="card-text">Chaqueta fina de indigo, mezcla algodón 100%.</p>
+              <p class="fs-3 text-dark">$ 42.000</p>
+              <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/vestido_2.jpg" class="object-fit-md" class="card-img-top" alt="Vestido de mujer">
+            <div class="card-body">
+              <h5 class="card-title">Vestido Romance</h5>
+              <p class="card-text">Vestido importado, Cuello halter cruzado con lazada en espalda, vicuña mezcla de algodón.</p>
+              <p class="fs-3 text-dark">$ 29.500</p>
+              <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock contenido %}
