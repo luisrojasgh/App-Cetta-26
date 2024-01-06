@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
 
-      {% comment %} {% for producto in productos%}
+      {% for producto in productos%}
       <div class="col-md-4">
         <div class="card h-75">
           <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Imágenes de Moda">
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      {% endfor %} {% endcomment %}
+      {% endfor %} 
 
         {% comment %} <div class="col-md-4">
           <div class="card">

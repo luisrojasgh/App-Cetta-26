@@ -5,9 +5,9 @@ from exhibicion.models import Producto
 # Función 
 def productos_mostrar(request):
     titulo="Productos"
-    #productos= Producto.objects.filter(estado=True)
+    productos= Producto.objects.filter(estado=True)
     context={
         "titulo": titulo,
-        #"productos":productos 
+        "productos":productos 
     }
     return render(request, "productos.html", context)
