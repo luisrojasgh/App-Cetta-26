@@ -8,9 +8,9 @@
     <title>Cetta - {{titulo}}</title>
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'Swiper/swiper-bundle.min.css' %}"/>
-    <link rel="shortcut icon" href="{% static 'img/icon_3.png' %}"> 
+    <link rel="shortcut icon" href="{% static 'img/icon_3.png' %}"> {% endcomment %}
     <!- para las alertas ->
     {% comment %} <link href="{% static 'Toastr/css/toastr.min.css' %}" rel="stylesheet"> {% endcomment %}
 </head>

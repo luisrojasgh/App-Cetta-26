@@ -6,7 +6,28 @@
 <section class="servicios">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+
+      {% comment %} {% for producto in productos%}
+      <div class="col-md-4">
+        <div class="card h-75">
+          <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Imágenes de Moda">
+          <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">{{producto.descripcion}}</p>
+            {% if producto.descuento > 0%}
+              <p class="fs-4 text-danger display-2">Antes $<del>{{producto.precio}}</del></p>
+              <p class="fs-3 text-dark">Ahora $ {{producto.precio_con_descuento}}</p>
+            {% else %}
+              <p class="fs-3 text-dark">$ {{producto.precio}}</p>
+            {% endif %}
+            
+            <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endcomment %}
+
+        {% comment %} <div class="col-md-4">
           <div class="card">
             <img src="img/tacones_1.jpg" class="object-fit-md" class="card-img-top" alt="tacones de mujer">
             <div class="card-body">
@@ -18,29 +39,8 @@
               <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="img/jacket_1.jpg" class="object-fit-md" class="card-img-top" alt="Chaqueta de mujer">
-            <div class="card-body">
-              <h5 class="card-title">Chaqueta indigo 1</h5>
-              <p class="card-text">Chaqueta fina de indigo, mezcla algodón 100%.</p>
-              <p class="fs-3 text-dark">$ 42.000</p>
-              <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="img/vestido_2.jpg" class="object-fit-md" class="card-img-top" alt="Vestido de mujer">
-            <div class="card-body">
-              <h5 class="card-title">Vestido Romance</h5>
-              <p class="card-text">Vestido importado, Cuello halter cruzado con lazada en espalda, vicuña mezcla de algodón.</p>
-              <p class="fs-3 text-dark">$ 29.500</p>
-              <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
-            </div>
-          </div>
-        </div>
+        </div> {% endcomment %}
+        
       </div>
     </div>
   </section>

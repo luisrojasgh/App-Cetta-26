@@ -38,6 +38,14 @@ class Producto(models.Model):
         verbose_name='producto'
         verbose_name_plural='productos'
 
+    def precio_con_descuento(self):
+        # Calcular el precio con el descuento aplicado.
+        if self.descuento > 0:
+            precio_total = (self.precio)-((self.precio*self.descuento)/100)
+        else:
+            precio_total = self.precio
+        return precio_total
+    
     def __str__(self):
         return self.nombre
     
