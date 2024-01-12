@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import MinValueValidator
 
 # Modelo para la exhibición general de productos.
 
@@ -27,7 +28,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=60, verbose_name="Nombre")
     descripcion = models.TextField()
     descuento = models.DecimalField(max_digits=3, decimal_places=1)
-    precio = models.DecimalField(max_digits=10, decimal_places=1)
+    precio = models.DecimalField(max_digits=10, decimal_places=1, validators=[MinValueValidator(0)])
     referencia = models.CharField(max_length=50)
     estado = models.BooleanField(default=True)
     categoria = models.CharField(max_length=20, choices=Categoria.choices, verbose_name="Categoría", default=Categoria.CALZADO)
