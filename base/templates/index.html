@@ -67,7 +67,7 @@
       
       {% for prod in producto_index%}
       <div class="col-md-4">
-        <div class="card h-75">
+        <div class="card h-auto" style="background:transparent">
           <img src="{{ prod.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Chaqueta de mujer">
           <div class="card-body">
             <h5 class="card-title">{{prod.nombre}}</h5>
@@ -79,7 +79,7 @@
               <p class="fs-3 text-dark">$ {{prod.precio}}</p>
             {% endif %}
             
-            <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+            <a href="#" class="btn btn-dark bg-gradient" style="margin-left:28%">Agregar al Carrito</a>
           </div>
         </div>
       </div>

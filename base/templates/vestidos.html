@@ -10,19 +10,19 @@
 
       {% for producto in productos_vestidos%}
       <div class="col-md-4">
-        <div class="card h-75">
+        <div class="card h-auto" style="background:transparent;">
           <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Imágenes de Moda">
           <div class="card-body">
             <h5 class="card-title">{{producto.nombre}}</h5>
             <p class="card-text">{{producto.descripcion}}</p>
             {% if producto.descuento > 0%}
-              <p class="fs-4 text-danger display-2">Antes $<del>{{producto.precio}}</del></p>
-              <p class="fs-3 text-dark">Ahora $ {{producto.precio_con_descuento}}</p>
+              <p class="fs-4 text-danger display-2 card-text">Antes $<del>{{producto.precio}}</del></p>
+              <p class="fs-3 text-dark card-text">Ahora $ {{producto.precio_con_descuento}}</p>
             {% else %}
-              <p class="fs-3 text-dark">$ {{producto.precio}}</p>
+              <p class="fs-3 text-dark card-text">$ {{producto.precio}}</p>
             {% endif %}
             
-            <a href="#" class="btn btn-dark bg-gradient">Agregar al Carrito</a>
+            <a href="#" class="btn btn-dark bg-gradient" style="margin-left:28%">Agregar al carrito</a>
           </div>
         </div>
       </div>
