@@ -51,14 +51,14 @@
                     <p class="fs-5">{{info.descripcion}}<p>    
                     {% endfor %}
                     
-                    <a href="#">
+                    <a href="{% url 'descuentos' %}">
                       {% for info in info_descuento%}
                         <img class="img-fluid rounded-3"src="{{ info.imagen.url }}" alt="Jean para dama"></a>
                       {% endfor %}
                 </div>
                 <div class="col-6">
                   {% for img in imagenes%}
-                    <a href="#"><img class="img-fluid"src="{{ img.imagen.url }}" alt="Jean para dama"></a>
+                    <a href="{% url 'descuentos' %}"><img class="img-fluid"src="{{ img.imagen.url }}" alt="Jean para dama"></a>
                   {% endfor %}
                 </div>
 
