@@ -30,13 +30,19 @@ class Usuario(models.Model):
 
     tipo_documento=models.CharField(max_length=2,choices=TipoDocumento.choices,verbose_name="Tipo de Documento")
     documento= models.PositiveIntegerField(verbose_name="Documento", unique=True)
-    correo = models.EmailField(max_length=50, verbose_name="Correo", blank=False, null=False)
+    correo = models.EmailField(max_length=50, verbose_name="Correo", blank=True, null=True)
     celular = models.CharField(max_length=15, blank=True, null=True)
     telefono_fijo = models.CharField(max_length=15, blank=True, null=True)
-    contraseña = models.CharField(max_length=128)
+    password = models.CharField(max_length=128)
     estado=models.BooleanField(default=True)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
-    direccion= models.ForeignKey(Direccion, on_delete=models.CASCADE)
+    direccion = models.ForeignKey(Direccion, on_delete=models.CASCADE, related_name='direccion_usuario')
+
+    @property
+    def primer_nombre(self):
+        nombre_dividido = self.nombre.split(" ")
+        primer_nombre = nombre_dividido[0]
+        return primer_nombre
 
     class Meta:
         verbose_name="Usuario"
