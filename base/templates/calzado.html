@@ -12,6 +12,72 @@
 {% comment %} Desplegar los productos en la sección. {% endcomment %}
 <section class="Calzado">
     <div class="container">
+      <!-- Carrito -->
+      {% if user.is_authenticated %}
+      <div class="container bg-dark bg-opacity-75 bg-gradient rounded w-auto  mt-1" style="position: sticky; top:0rem; z-index: 1;">
+        <div class="row my-1 pt-1">
+          <div class="col-2">
+            <button type="button" class="btn btn-outline-info rounded-circle">1</button>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg> -->
+          </div>
+          <div class="col-3 align-items-center text-white-50">
+            <h6>Tacones lux</h6>
+          </div>
+          <div class="col-3 align-items-center text-white-50">
+            <h6>$ 31.000</h6>
+          </div>
+          <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+          </div>
+          <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <button type="button" class="btn btn-outline-info rounded-circle">3</button>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg> -->
+          </div>
+          <div class="col-3 text-white-50">
+            <h6>Vestido romance</h6>
+          </div>
+          <div class="col-3 align-items-center text-white-50">
+            <h6>$ 42.000</h6>
+          </div>
+          <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+          </div>
+          <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+          </div>
+        </div>
+        <div class="row mt-2 pb-1 px-2">
+          <div class="col-2">
+            <button type="button" class="btn btn-light btn-sm">Vaciar</button>
+          </div>
+          <div class="col-3 align-items-center text-success">
+            <h5>Subotal<h5>
+          </div>
+          <div class="col-3 align-items-center text-success">
+            <h5>$ 73.00<h5>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-light btn-sm">Pagar</button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-light btn-sm">Cancelar</button>
+          </div>
+        </div> 
+      </div>
+        <!-- Contenido para usuarios autenticados -->
+      {% else %}
+        <p></p>
+        <!-- Contenido para usuarios no autenticados -->
+      {% endif %}
       <div class="row">
 
       {% for producto in productos_calzado%}

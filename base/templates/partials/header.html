@@ -37,14 +37,30 @@
                       <li><a class="dropdown-item" href="{% url 'jeans' %}">{% bs_icon 'person-standing' %}Jeans</a></li>
                     </ul>
                   </li>
-                  
-                  {% comment %} {% if user.is_authenticated %}
-                      <p class="text-white">Bienvenido,</p>
+                  <!--Menú de usuario-->
+                  {% if user.is_authenticated %}
+                  <div class="btn-group">
+                    <button class="btn btn-secondary bg-gradient btn-sm" type="button">
+                      Usuario
+                    </button>
+                    <button type="button" class="btn btn-sm btn-dark bg-gradient dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="comprasUsuario.html">Mis Compras</a></li>
+                      <li><a class="dropdown-item" href="actualizar_Datos.html">Actualizar Datos</a></li>
+                          <li><hr class="dropdown-divider"></li> 
+                      <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                   <!--  <ul class="dropdown-menu">
+                      ...
+                    </ul> -->
+                  </div>
                       <!-- Contenido para usuarios autenticados -->
                   {% else %}
-                      <p class="text-white">Por favor, inicia sesión para acceder a esta parte.</p>
+                      <p></p>
                       <!-- Contenido para usuarios no autenticados -->
-                  {% endif %} {% endcomment %}
+                  {% endif %} 
                 
                   <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Carrito de compras">
