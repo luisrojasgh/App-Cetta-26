@@ -8,13 +8,13 @@ def principal(request):
     info_descuento= DescuentoInformacion.objects.filter(estado=True)
     imagenes= DescuentoImagen.objects.filter(estado=True)
     producto_index= ProductoIndex.objects.filter(estado=True)
-    # productos= Producto.objects.all()
+   
     context={
         "titulo": titulo,
         "sliders": sliders,
         "info_descuento": info_descuento,
         "imagenes": imagenes,
         "producto_index": producto_index,
-        # "productos":productos 
+       
     }
     return render(request, "index.html", context)
