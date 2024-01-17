@@ -1,0 +1,19 @@
+{% load static %}
+
+<!- para las alertas ->
+<script src="{% static "Toastr/js/toastr.min.js" %}"></script>
+
+{% if messages %}
+  {% for message in messages %}
+    <script>
+    // In your Javascript (external .js resource or <script> tag)
+    
+    toastr.{{ message.tags }}('{{ message|safe }}', '', {
+        closeButton: true,
+        progressBar: true,
+        positionClass: 'toast-bottom-right'
+    });
+    </script>
+  {% endfor %}
+{% endif %}
+
