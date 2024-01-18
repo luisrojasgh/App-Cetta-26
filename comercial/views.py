@@ -37,6 +37,8 @@ def usuario_crear(request):
                 telefono_fijo=request.POST['telefono_fijo'],
                 password=request.POST['password'],
                 direccion=request.POST['direccion'],
+                municipio=request.POST['municipio'],
+                barrio_vereda=request.POST['barrio_vereda'],
                 user=user,
                 
             )
@@ -46,7 +48,7 @@ def usuario_crear(request):
                  img= img.resize((500,500))
                  img.save(usuario.imagen.path) """
             usuario.save()
-            return redirect('usuarios')
+            return redirect('index')
 
         else:
             #messages.success(request, f'¡Error al agregar al Usuario!')
