@@ -19,7 +19,7 @@ def usuario_crear(request):
                 user.first_name= request.POST['nombre']
                 user.last_name= request.POST['apellidos']
                 user.email= request.POST['correo']
-                user.password=make_password("@" + request.POST['primer_nombre'][0] + request.POST['primer_apellido'][0] + request.POST['documento'][-4:])
+                user.password=make_password("@" + request.POST['nombre'][0] + request.POST['apellidos'][0] + request.POST['documento'][-4:])
                 user.save()
             else:
                 user=User.objects.get(username=request.POST['documento'])
