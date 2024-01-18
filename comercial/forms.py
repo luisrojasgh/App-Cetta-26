@@ -7,10 +7,10 @@ from django.contrib.admin.widgets import FilteredSelectMultiple
 
 
 class UsuarioForm(ModelForm):
-    rol= ModelChoiceField(
+    """ rol= ModelChoiceField(
         queryset=Group.objects.all(),
         label="Rol",
-    )
+    ) """
     class Meta:
         model= Usuario
         fields= "__all__"

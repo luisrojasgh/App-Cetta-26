@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 from django.db import models
 
-class Direccion(models.Model):
+""" class Direccion(models.Model):
     direccion = models.CharField(max_length=254)
     municipio = models.CharField(max_length=100)
     barrio_vereda = models.CharField(max_length=100)
@@ -16,7 +16,7 @@ class Direccion(models.Model):
         verbose_name_plural='Direcciones'
 
     def __str__(self):
-        return f'{self.direccion}, {self.municipio}, {self.barrio_vereda}'
+        return f'{self.direccion}, {self.municipio}, {self.barrio_vereda}' """
 
 
 class Usuario(models.Model):
@@ -32,11 +32,14 @@ class Usuario(models.Model):
     documento= models.PositiveIntegerField(verbose_name="Documento", unique=True)
     correo = models.EmailField(max_length=50, verbose_name="Correo")
     celular = models.CharField(max_length=15, verbose_name="Celular")
-    telefono_fijo = models.CharField(max_length=15, verbose_name="telefono fijo", blank=True, null=True)
+    telefono_fijo = models.CharField(max_length=15, verbose_name="Teléfono fijo", blank=True, null=True)
     password = models.CharField(max_length=128)
+    direccion = models.CharField(max_length=150, verbose_name="Dirección")
+    municipio = models.CharField(max_length=150, verbose_name="Municipio")
+    barrio_vereda = models.CharField(max_length=150, verbose_name="Barrio o vereda")
     estado=models.BooleanField(default=True)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
-    direccion = models.ForeignKey(Direccion, on_delete=models.CASCADE, related_name='direccion_usuario')
+    
 
     @property
     def primer_nombre(self):

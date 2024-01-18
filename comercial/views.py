@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Direccion, Usuario
+from .models import Usuario
 from .forms import UsuarioForm
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 #@permission_required('comunidad.add_usuario', raise_exception=True)
@@ -15,17 +16,17 @@ def usuario_crear(request):
             if not User.objects.filter(username=request.POST['documento']):
                 user = User.objects.create_user('nombre','email@email','pass')
                 user.username= request.POST['documento']
-                user.first_name= request.POST['primer_nombre']
-                user.last_name= request.POST['primer_apellido']
+                user.first_name= request.POST['nombre']
+                user.last_name= request.POST['apellidos']
                 user.email= request.POST['correo']
-                #user.password=make_password("@" + request.POST['primer_nombre'][0] + request.POST['primer_apellido'][0] + request.POST['documento'][-4:])
+                user.password=make_password("@" + request.POST['primer_nombre'][0] + request.POST['primer_apellido'][0] + request.POST['documento'][-4:])
                 user.save()
             else:
                 user=User.objects.get(username=request.POST['documento'])
-            rol_id = request.POST.get('rol')  # Obtén el ID del grupo seleccionado en el formulario
-            if rol_id:
+            """rol_id = request.POST.get('rol')  # Obtén el ID del grupo seleccionado en el formulario
+             if rol_id:
                 rol = Group.objects.get(id=rol_id)
-                user.groups.add(rol)  # Asocia el usuario al grupo
+                user.groups.add(rol)  # Asocia el usuario al grupo """
             usuario = Usuario.objects.create(
                 nombre=request.POST['nombre'],
                 apellidos=request.POST['apellidos'],
