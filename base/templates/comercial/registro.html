@@ -4,21 +4,23 @@
 
 
 {% block contenido %}
-<div class="container-fluid col-10">
-  <div class="container-fluid m-4 row">
+<div class="container-md border bg-dark bg-opacity-10 bg-gradient rounded shadow-sm mt-1">
+  <div class="row">
       {% comment %} {% if perms.comunidad.add_usuario %} {% endcomment %}
-        <div class="rounded card bg-transparent p-3 col-md-5">
+        <!--<div class="rounded card bg-transparent p-3 col-md-5">-->
           <h5 class="text-center">Registrarse</h5>
           <h6 class="text-center">¿Ya estás registrado/a? <a href="#">Ingresa aquí</a></h6>
-          <table>
-            <form method="POST" enctype="multipart/form-data">
-              {% csrf_token %}
-              {{ form.as_table }}
-            </form>
-          </table>
+          <div class="p-3 col">
+            <table>
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_table }}
+              </form>
+            </table>
           <input class="btn btn-outline-success mt-2 btn-sm" type="submit" value="{{ accion }}" />
           <a href="{% url 'index' %}" class="btn btn-outline-danger mt-2 btn-sm">Cancelar</a>
-        </div>
+          </div>  
+        <!--</div>-->
       {% comment %} {% endif %} {% endcomment %}
   </div>
 </div>
