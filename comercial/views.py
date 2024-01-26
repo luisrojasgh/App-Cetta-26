@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Direccion, Usuario
+# from .models import 
 
 # Create your views here.
 def usuario_crear(request):
