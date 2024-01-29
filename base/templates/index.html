@@ -58,10 +58,10 @@
       <h6>$ 31.000</h6>
     </div>
     <div class="col-2 align-items-end">
-      <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+      <button type="button" class="btn btn-outline-success btn-md">+</button>
     </div>
     <div class="col-2 align-items-end">
-      <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+      <button type="button" class="btn btn-outline-danger btn-md">-</button>
     </div>
   </div>
   <div class="row">
@@ -78,10 +78,10 @@
       <h6>$ 42.000</h6>
     </div>
     <div class="col-2 align-items-end">
-      <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+      <button type="button" class="btn btn-outline-success btn-md">+</button>
     </div>
     <div class="col-2 align-items-end">
-      <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+      <button type="button" class="btn btn-outline-danger btn-md">-</button>
     </div>
   </div>
   <div class="row mt-2 pb-1 px-2">
@@ -141,7 +141,7 @@
       {% for prod in producto_index%}
       <div class="col-md-4">
         <div class="card h-auto" style="background:transparent">
-          <img src="{{ prod.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Chaqueta de mujer">
+          <img src="{{ prod.imagen.url }}" class="object-fit-md" class="card-img-top" style="height:25rem" alt="Chaqueta de mujer">
           <div class="card-body">
             <h5 class="card-title">{{prod.nombre}}</h5>
             <p class="card-text">{{prod.descripcion}}</p>
