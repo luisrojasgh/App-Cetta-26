@@ -29,10 +29,10 @@
             <h6>$ 31.000</h6>
           </div>
           <div class="col-2 align-items-end">
-            <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+            <button type="button" class="btn btn-outline-success btn-md">+</button>
           </div>
           <div class="col-2 align-items-end">
-            <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+            <button type="button" class="btn btn-outline-danger btn-md">-</button>
           </div>
         </div>
         <div class="row">
@@ -49,10 +49,10 @@
             <h6>$ 42.000</h6>
           </div>
           <div class="col-2 align-items-end">
-            <button type="button" class="btn btn-outline-success btn-sm">Uno +</button>
+            <button type="button" class="btn btn-outline-success btn-md">+</button>
           </div>
           <div class="col-2 align-items-end">
-            <button type="button" class="btn btn-outline-danger btn-sm">Uno &nbsp;-</button>
+            <button type="button" class="btn btn-outline-danger btn-md">-</button>
           </div>
         </div>
         <div class="row mt-2 pb-1 px-2">
@@ -83,7 +83,7 @@
         {% for producto in productos_vestidos%}
         <div class="col-md-4">
           <div class="card h-auto mb-1" style="background:transparent;">
-            <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" alt="Imágenes de Moda">
+            <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" style="height:25rem" alt="Imágenes de Moda">
             <div class="card-body">
               <h5 class="card-title">{{producto.nombre}}</h5>
               <p class="card-text">{{producto.descripcion}}</p>
