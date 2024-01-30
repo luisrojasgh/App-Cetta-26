@@ -1,0 +1,26 @@
+/* Estilos para hacer la tabla responsiva */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    position: sticky; top:0rem; z-index: 1; background-color: antiquewhite; 
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    /* Cambia el diseño en pantallas más pequeñas */
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+#carrito {
+    position: sticky; top:0rem; z-index: 1
+}
