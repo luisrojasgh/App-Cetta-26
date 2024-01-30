@@ -1,0 +1,57 @@
+{% load static %}
+{% load bootstrap_icons %}
+
+<div class="btn-group" id="carrito">
+    <button class="btn btn-secondary bg-opacity-75 btn-md" type="button">{% bs_icon 'cart-fill' %}
+      Carrito
+    </button>
+    <button type="button" class="btn btn-sm btn-dark bg-opacity-75 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li>
+        <table class="table table-striped table-hover table-md">
+          <thead>
+              <tr>
+                  <th>Cantidad</th>
+                  <th>Articulo</th>
+                  <th>Valor</th>
+                  <th>Talla</th>
+                  <th>Sum/Res</th>
+                  <!-- Otros encabezados según tus campos -->
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>Tacones lux</td>
+                  <td>$ 31.000</td>
+                  <td>
+                    <select class="form-select form-select-sm" aria-label="Small select example">
+                      <option selected>Selecciona la talla</option>
+                      <option value="1">S</option>
+                      <option value="2">M</option>
+                      <option value="3">L</option>
+                      <option value="3">XL</option>
+                    </select>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-outline-success btn-sm">+</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm">-</button>
+                  </td>
+                  <!-- Otros campos según tus necesidades -->
+              </tr>
+              <tr>
+                <td><button type="button" class="btn btn-light btn-sm">Vaciar</button></td>
+                <td><h6>Subotal:<h6></td>
+                <td colspan="2"><h6><b>$ 73.000</b><h6></td>
+                <td>
+                    <button type="button" class="btn btn-light btn-sm mb-1">Comprar</button>
+                    <button type="button" class="btn btn-light btn-sm">Cancelar</button>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      <li>
+    </ul>
+  </div>
