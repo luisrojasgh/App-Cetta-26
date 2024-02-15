@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from exhibicion.models import Producto
 
@@ -51,3 +51,12 @@ def productos_mostrar_jeans(request):
         "productos_jeans":productos_jeans
     }
     return render(request, "jeans.html", context)
+
+def detalle_producto(request, producto_id):
+    titulo="Detalle del producto"
+    producto = get_object_or_404(Producto, pk=producto_id)
+    context={
+        "titulo": titulo,
+        "producto":producto
+    }
+    return render(request, 'detalle_producto.html', context)
