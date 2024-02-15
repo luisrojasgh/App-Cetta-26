@@ -1,0 +1,35 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+    {% include 'carrito.html' %}
+        <!-- Contenido para usuarios autenticados -->
+    {% else %}
+    <p></p>
+        <!-- Contenido para usuarios no autenticados -->
+    {% endif %}
+<div class="container bg-dark text-white-50 mt-2">
+    <div class="row">
+        <div class="col-5">
+            <div class="card h-75" style="background:transparent;">
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+            </div>
+        </div>
+        <div class="col-7">
+            <h2>{{ producto.nombre }}</h2>
+            <hr>
+            <p>{{ producto.descripcion }}</p>
+            {% if producto.descuento > 0%}
+              <p class="fs-4 text-danger display-2">Antes $<del>{{producto.precio}}</del></p>
+              <p class="fs-3 text-white-50">Ahora $ {{producto.precio_con_descuento}}</p>
+            {% else %}
+              <p class="fs-3 text-white-50">$ {{producto.precio}}</p>
+            {% endif %}
+            <a href="#" class="btn btn-outline-success bg-gradient">Agregar al carrito</a>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}
