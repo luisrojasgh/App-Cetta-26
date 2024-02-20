@@ -28,11 +28,11 @@
           <img src="{{ producto.imagen.url }}" class="object-fit-md" class="card-img-top" style="height:25rem" alt="Imágenes de Moda">
           <div class="card-body">
             <h5 class="card-title text-white-50">{{producto.nombre}}</h5>
-            <p class="card-text text-white-50">{{producto.descripcion}}</p>
+            
             <p class="fs-4 text-danger display-2">Antes $<del>{{producto.precio}}</del></p>
             <p class="fs-3 text-white-50">Ahora $ {{producto.precio_con_descuento}}</p>
             <div class="row align-items-center">
-              <a href="#" class="btn btn-outline-success bg-gradient">Agregar al carrito</a>
+              <a href="{% url 'detalle_producto' producto.id %}" class="btn btn-outline-success bg-gradient">Ver mas</a>
             </div>
           </div>
         </div>
