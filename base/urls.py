@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from base.views import principal, ayuda_usuario
+from base.views import principal, ayuda_usuario, preguntas, contacto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',principal,name="index"),
-    path('base',ayuda_usuario,name="ayuda"),
+    path('base/',ayuda_usuario,name="ayuda"),
+    path('base/',preguntas,name="preguntas"),
+    path('base/',contacto,name="atencion"),
     path('exhibicion/',include('exhibicion.urls')),
     path('comercial/',include('comercial.urls')),
 ]
