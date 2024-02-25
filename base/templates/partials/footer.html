@@ -3,26 +3,40 @@
 <footer class="bg-dark bg-gradient py-2 mt-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <a href="{% url 'productos' %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Ir a sección de productos"><img src="{% static 'img/logo-d1.png' %}" alt=" Logo de la empresa" class="w-100" class="h-100"></a>
-          <p class="text-center text-white-50">Derechos reservados &copy; 2023</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-center text-success text-opacity-75">Contacto</h5>
-          <p class="text-center text-white-50">Teléfono: 317 5583561</p>
-          <p class="text-center text-white-50">Correo electrónico: info@Cetta.com</p>
-          <p class="text-center text-white-50">Dirección: Copacabana Antioquia</p>
+        <div class="col-md-2 text-center">
           
+          <a href="{% url 'productos' %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Ir a sección de productos"><img src="{% static 'img/logo-d1.png' %}" alt=" Logo de la empresa" class="w-100" class="h-100"></a>
         </div>
-        <div class="col-md-4">
-          <h5 class="text-center text-success text-opacity-75">Redes sociales</h5>
-          <ul class="list-unstyled">
-            <li class="text-center"><a href="https://www.facebook.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="Red social facebook">{% bs_icon 'facebook' %}</a></li>
-            <li class="text-center"><a href="https://www.twitter.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="Red social twitter">{% bs_icon 'twitter' %}</a></li>
-            <li class="text-center"><a href="https://www.instagram.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="Red social instagram">{% bs_icon 'instagram' %}</a></li>
-            <li class="text-center"><a href="https://www.linkedin.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="Red social linkedin">{% bs_icon 'linkedin' %}</a></li>
-          </ul>
+        <div class="col-md-5">
+          <h5 class="text-success text-opacity-75">Derechos reservados &copy; 2023</h5>
+          <p class="text-white-50">Cetta.com S.A.S. NIT 900.467.772-8. Calle 50 #54-11, Copacabana, Antioquia</p>
+        </div>
+        <div class="col-md-5">
+          <h5 class="text-success text-opacity-75">Contacto</h5>
+          <p class="text-white-50">Teléfono: 3175583561</p>
+          <p class="text-white-50">Correo electrónico: info@Cetta.com</p>
+          <p class="text-white-50">Dirección: Calle 50 #54-11, Copacabana Antioquia</p>
         </div>
       </div>
+    </div>    
+    <div class="row bg-dark">
+        <div class="col-md-1 text-center mt-1">
+          <a href="https://www.facebook.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Red social facebook">{% bs_icon 'facebook' %}</a>
+        </div>
+        <div class="col-md-1 text-center mt-1">
+          <a href="https://www.twitter.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Red social twitter">{% bs_icon 'twitter' %}</a>
+        </div>
+        <div class="col-md-1 text-center mt-1">
+          <a href="https://www.instagram.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Red social instagram">{% bs_icon 'instagram' %}</a>
+        </div>  
+        <div class="col-md-1 text-center mt-1">
+          <a href="https://www.linkedin.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Red social linkedin">{% bs_icon 'linkedin' %}</a>
+        </div> 
+        <div class="col-md-4 mt-2">
+          <a href="#" style="text-decoration: none"><h5 class="text-center text-white-50">Centro de ayuda</h5></a>
+        </div>
+        <div class="col-md-4 mt-2">
+          <a href="#" style="text-decoration: none"><h5 class="text-center text-white-50">Términos y condiciones</h5></a>
+        </div>
     </div>
-  </footer>
+</footer>
