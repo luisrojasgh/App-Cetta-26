@@ -24,17 +24,3 @@ def ayuda_usuario(request):
         "titulo": titulo,
     }
     return render(request, "ayuda.html", context)
-
-def preguntas(request):
-    titulo="Preguntas frecuentes"
-    context={
-        "titulo": titulo,
-    }
-    return render(request, "preguntas.html", context)
-
-def contacto(request):
-    titulo="Atención y contacto"
-    context={
-        "titulo": titulo,
-    }
-    return render(request, "contacto.html", context)
