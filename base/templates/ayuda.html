@@ -1,0 +1,98 @@
+{% extends 'partials/body.html' %}
+
+{% block contenido %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#preguntas">Preguntas frecuentes</a></li>
+      <li class="breadcrumb-item"><a href="#contacto">Líneas de atención y contacto</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Ayuda</li>
+    </ol>
+  </nav>   
+</div>
+
+<div class="container">
+  <div class="row" id="ayuda">
+    <div class="col-md">
+  <h2>Ayuda</h2> 
+  <p><pre>
+Este módulo proporciona asistencia y orientación a los usuario/as sobre cómo utilizar la tienda online <b>Cetta</b>. 
+Puede incluir preguntas frecuentes, tutoriales paso a paso y opciones de contacto para soporte adicional.
+1. Categorías de Productos:
+   - Calzado
+   - Vestidos
+   - Jeans
+   Cada categoría muestra productos relacionados para facilitar la navegación y búsqueda de los usuario/as.
+2. Sección de Descuentos: Aquí se muestran productos que están en oferta o tienen descuentos especiales. 
+3. Carrito de Compras:
+   - Permite a los usuario/as agregar productos al carrito, ajustar las cantidades y eliminar productos si es necesario, así mismo como vaciar el carro y cancelar la opción de compra.
+   - Muestra el subtotal de la compra en tiempo real para que los usuario/as tengan una idea clara del costo total de sus selecciones.
+4. Módulos de Registro, Ingreso y Egreso:
+   - Registro: Permite a nuevos usuario/as crear una cuenta en la tienda proporcionando información básica como nombre, apellidos, dirección, dirección de correo electrónico, crearse una contraseña, número de teléfono y numero de celular.
+   - Ingreso: Permite a los usuario/as registrados iniciar sesión en sus cuentas para acceder a funcionalidades adicionales, como realizar compras, ver el historial de compras y actualizar la información de la cuenta.
+   - Egreso: Permite a los usuario/as cerrar sesión en sus cuentas cuando hayan terminado de utilizar la tienda.
+   - Cerrar cuenta: Permite a los usuario/as darse de baja en la aplicación, con esto los usuario/as dejan de tener cualquier relación comercial con el aplicativo, y para volver a usar los servicios de la tienda, deberán crearse una cuenta nueva. Esto puede ser útil si deciden no utilizar más la plataforma o si desean eliminar su información personal por cualquier motivo.
+5. Historial de Compras: Los usuario/as pueden acceder a un historial de sus compras anteriores, lo que les permite realizar un seguimiento de sus pedidos y verificar su estado.
+6. Actualización de Datos de la Cuenta: Permite a los usuario/as actualizar la información de su cuenta, como la dirección de envío, la información de facturación o la contraseña.
+   Estas funcionalidades proporcionan una experiencia completa para los usuario/as que desean navegar, comprar y gestionar su cuenta en la tienda online <b>Cetta</b>.
+  </pre>
+</p>
+<hr>
+    </div>
+  </div>
+
+<div class="row" id="preguntas">
+  <div class="col-md">
+  <h2>Preguntas frecuentes</h2>
+    <p><pre>
+Algunas preguntas que podrían surgir de los usuario/as en relación con la tienda online <b>Cetta</b> y sus funcionalidades:
+1. ¿Cómo puedo encontrar productos específicos en la tienda?
+    Para encontrar los productos e información relacionada a los detalles de los productos, existen secciones especificas por categorías, además de una sección de descuentos, cada una de ellas conlleva a una sección en detalle del producto que se halla seleccionado a través del botón ver más. Además de los productos exhibidos en la página de inicio. 
+2. ¿Cómo puedo agregar productos al carrito de compras?
+    Para adicionar productos al carrito se hace click en el botón agregar al carrito, presente en todas las tarjetas descriptivas de los productos. Luego de eso el producto elegido se adicionará al carrito de compras donde se podrá seleccionar la talla, sumar o restar cantidades, confirmar o desestimar su compra. 
+3. ¿Hay algún límite en la cantidad de productos que puedo agregar al carrito?
+    No existe un límite en la cantidad de productos a comprar.
+4. ¿Cómo puedo aplicar descuentos a mi compra?
+    La única opción incluida para aplicar a descuentos, es la que se presenta en la página de descuentos y ofertas que se publica en la aplicación, y que registra los descuentos aplicados a productos.
+5. ¿Puedo ver el subtotal de mi compra antes de proceder al pago? 
+    Si, se puede ver el subtotal de la compra antes de proceder con el pago, y es posible retractarse de la compra antes de pagar, pero no después.
+6. ¿Cómo puedo crear una cuenta en la tienda?
+    Existe un módulo de ingreso, que consiste en el diligenciamiento de un formulario, después de llenado el registro del formulario con datos válidos, se genera la cuenta del usuario/a.
+7. ¿Qué beneficios obtengo al registrarme en la tienda?
+    Los beneficios que se obtienen son básicamente el poder contar con un registro en la aplicación web, además de poder realizar compras y acceder a su historial para consultas y descarga de información relacionada.
+8. ¿Cómo puedo acceder a mi historial de compras?
+    Al registrarse como usuario/a se tiene disponible un menú de usuario/a, en el que se encuentra el módulo llamado mis compras, con el fin de poder consultar las compras realizadas.
+9. ¿Qué debo hacer si olvidé mi contraseña de inicio de sesión?
+    Hay un formulario disponible para realizar el proceso de recuperación de contraseña, solo es cuestión de ingresar unos simples datos, y se recibirá un correo con las indicaciones para su recuperación.
+10. ¿Cómo puedo cerrar mi cuenta en la tienda si ya no quiero utilizarla?
+    Existe un módulo llamado cerrar cuenta con el objetivo de que el usuario/a se dé de baja de la aplicación.
+11. ¿Qué métodos de pago están disponibles en la tienda?
+    En el momento solo se cuenta con el medio de pago en efectivo, el pago se realiza al momento de recibir el producto
+12. ¿Cómo puedo contactar al servicio de atención al cliente si tengo problemas con mi pedido?
+    Las líneas de atención al cliente son: 2746292 – 3175583561
+    Correo: info@Cetta.com 
+13. ¿Los productos tienen garantía?
+    Los productos correspondientes a las categorías de jeans y vestidos no cuentan con garantía, mientras que los productos pertenecientes a la categoría de calzado, cuentan con una garantía de 3 meses.
+14. ¿Qué políticas de devolución tiene la tienda en caso de que necesite devolver un producto?
+    Los únicos productos susceptibles de ser devueltos, son los pertenecientes a la categoría de calzado, condicionado esto al optimo estado del producto. Para tal fin el usuario/a debe comunicarse con las líneas de atención al cliente o al correo proporcionado para tal fin.
+</pre></p>
+<hr>
+  </div>
+</div>
+<div class="row" id="contacto">
+  <div class="col-md">
+  <h2>Lineas de atención y contacto</h2>
+    <p><pre>
+  Líneas de atención y contacto.
+  2746292 – 3175583561
+  Correo: info@Cetta.com 
+      
+</pre></p>
+<hr>
+  </div>
+</div>
+</div>
+
+
+{% endblock contenido %}
