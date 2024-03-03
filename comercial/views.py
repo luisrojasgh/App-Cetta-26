@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # from .models import 
 
@@ -22,3 +22,8 @@ def login_ususrio(request):
         "titulo": titulo,
     }
     return render(request, "comercial/login.html", context)
+
+def logout_ususrio(request):
+    logout(request)
+    messages.success(request, 'Has cerrado sesión satisfactoriamente.')
+    return redirect('login')
