@@ -4,7 +4,7 @@ from django.contrib import messages
 # from .models import 
 
 # Create your views here.
-def login_ususrio(request):
+def login_usuario(request):
     titulo="Ingreso"
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -23,7 +23,7 @@ def login_ususrio(request):
     }
     return render(request, "comercial/login.html", context)
 
-def logout_ususrio(request):
+def logout_usuario(request):
     logout(request)
     messages.success(request, 'Has cerrado sesión satisfactoriamente.')
     return redirect('login')
