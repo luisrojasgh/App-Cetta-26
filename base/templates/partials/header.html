@@ -18,10 +18,10 @@
                   <p></p>
                   {% else %}
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="{% url 'registro' %}">Registrarse</a>
+                      <a class="nav-link" aria-current="page" href="#">Registrarse</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="ingreso.html">Ingresar</a>
+                      <a class="nav-link" aria-current="page" href="{% url 'login' %}">Ingresar</a>
                     </li>
                   {% endif %}
                   <li class="nav-item">
@@ -54,7 +54,7 @@
                       <li><a class="dropdown-item" href="comprasUsuario.html">{% bs_icon 'bag-fill' %}Mis Compras</a></li>
                       <li><a class="dropdown-item" href="actualizar_Datos.html">{% bs_icon 'arrow-clockwise' %}Actualizar Datos</a></li>
                           <li><hr class="dropdown-divider"></li> 
-                      <li><a class="dropdown-item" href="#">{% bs_icon 'box-arrow-left' %}Cerrar Sesión</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">{% bs_icon 'box-arrow-left' %}Cerrar Sesión</a></li>
                     </ul>
                    <!--  <ul class="dropdown-menu">
                       ...
