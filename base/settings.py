@@ -88,6 +88,8 @@ DATABASES = {
     }
 }
 
+# Personalización del modelo User
+# AUTH_USER_MODEL = 'comercial.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
