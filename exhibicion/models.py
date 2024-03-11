@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import MinValueValidator
+#from django.core.validators import MinValueValidator
 
 # Modelo para la exhibición general de productos.
 
@@ -39,8 +39,8 @@ class Producto(models.Model):
         verbose_name='producto'
         verbose_name_plural='productos'
 
+    # Calcular el precio con el descuento aplicado.
     def precio_con_descuento(self):
-        # Calcular el precio con el descuento aplicado.
         if self.descuento > 0:
             precio_total = (self.precio)-((self.precio*self.descuento)/100)
         else:
