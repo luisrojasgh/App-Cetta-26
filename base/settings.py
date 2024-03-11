@@ -59,6 +59,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'base.urls'
 
+# Personalización del modelo User
+AUTH_USER_MODEL = 'comercial.Usuario'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,8 +91,6 @@ DATABASES = {
     }
 }
 
-# Personalización del modelo User
-# AUTH_USER_MODEL = 'comercial.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

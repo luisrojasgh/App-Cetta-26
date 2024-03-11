@@ -12,14 +12,14 @@ class Usuario(AbstractUser):
         CEDULA_EXTRANJERIA='CE',_("Cédula de Extrangería")
     tipo_documento=models.CharField(max_length=2,choices=TipoDocumento.choices,verbose_name="Tipo de Documento")
     documento= models.PositiveIntegerField(verbose_name="Documento", unique=True)
-    email = models.EmailField(blank=False)
+    correo = models.EmailField(blank=False)
     numero_telefono = models.CharField(max_length=20, null=True, blank=True)
     numero_celular = models.CharField(max_length=20, null=False, blank=False)
     direccion = models.CharField(max_length=250, null=False, blank=False)
     municipio = models.CharField(max_length=100, null=False, blank=False)
     barrio_vereda = models.CharField(max_length=100, null=False, blank=False)
     estado=models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    #created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural="Usuarios"
