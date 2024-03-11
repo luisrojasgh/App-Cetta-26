@@ -18,6 +18,8 @@ class Usuario(AbstractUser):
     direccion = models.CharField(max_length=250, null=False, blank=False)
     municipio = models.CharField(max_length=100, null=False, blank=False)
     barrio_vereda = models.CharField(max_length=100, null=False, blank=False)
+    estado=models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural="Usuarios"
@@ -28,12 +30,12 @@ class Usuario(AbstractUser):
     
     @property
     def get_primer_nombre(self):
-        return '{} {}'.format(self.first_name.title())
+        return '{}'.format(self.first_name.title())
     
     
     def usuario_activo(self):
         if self.estado:
-            return Usuario.objects.filter(user=self, is_active=True)
+            return Usuario.objects.filter(usuario=self, estado=True)
         else:
             return Usuario.objects.none()
     
@@ -44,6 +46,9 @@ class Usuario(AbstractUser):
         
         return direccion_completa or 'No disponible'
     
+    def clean(self):
+        self.first_name= self.first_name.title()
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
