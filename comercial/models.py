@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 """ from django.contrib.auth.models import User """
 
-# Create your models here.
+# Modelo Usuario, extendido desde la clase abstracta AbstractUser. Sobresescribe el modelo User propio de django.
 class Usuario(AbstractUser):
 
     class TipoDocumento(models.TextChoices):

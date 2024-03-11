@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# from .models import 
+from .models import Usuario
 
 # Create your views here.
 def login_usuario(request):
@@ -27,3 +27,14 @@ def logout_usuario(request):
     logout(request)
     messages.success(request, 'Has cerrado sesión satisfactoriamente.')
     return redirect('login')
+
+def registro_usuario(request):
+    titulo="Registro"
+    usuarios = Usuario.objects.all()
+    context={
+        "titulo": titulo,
+        "usuarios": usuarios
+    }
+    return render(request, "comercial/registro.html", context)
+    
+    
