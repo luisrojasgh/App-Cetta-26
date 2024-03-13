@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Usuario
+from .forms import RegistroUsuario
 
 # Create your views here.
 def login_usuario(request):
@@ -29,11 +30,11 @@ def logout_usuario(request):
     return redirect('login')
 
 def registro_usuario(request):
+    form = RegistroUsuario()
     titulo="Registro"
-    usuarios = Usuario.objects.all()
     context={
         "titulo": titulo,
-        "usuarios": usuarios
+        "form": form
     }
     return render(request, "comercial/registro.html", context)
     
