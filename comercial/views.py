@@ -30,12 +30,30 @@ def logout_usuario(request):
     return redirect('login')
 
 def registro_usuario(request):
-    form = RegistroUsuario()
+    
     titulo="Registro"
+    form = RegistroUsuario(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        username=form.cleaned_data.get('username')
+        first_name=form.cleaned_data.get('first_name')
+        last_name=form.cleaned_data.get('last_name')
+        email=form.cleaned_data.get('email')
+        password=form.cleaned_data.get('password')
+        #password2=form.cleaned_data.get('password2')
+        tipo_documento=form.cleaned_data.get('tipo_documento')
+        documento=form.cleaned_data.get('documento')
+        numero_telefono=form.cleaned_data.get('numero_telefono')
+        numero_celular=form.cleaned_data.get('numero_celular')
+        direccion=form.cleaned_data.get('direccion')
+        municipio=form.cleaned_data.get('municipio')
+        barrio_vereda=form.cleaned_data.get('barrio_vereda')
+
+        print(username,first_name,last_name,email,password,tipo_documento,documento,numero_telefono,numero_celular,direccion,municipio,barrio_vereda)
+    
     context={
         "titulo": titulo,
         "form": form
     }
     return render(request, "comercial/registro.html", context)
-    
     
