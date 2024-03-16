@@ -18,7 +18,7 @@ class RegistroUsuario(forms.Form):
                                 widget=forms.TextInput(attrs={
                                     'class': 'form-control',
                                     'id': 'username',
-                                    'placeholder': 'Nombre de usuario/a para la aplicación'
+                                    'placeholder': 'Nombre de usuario/a para la aplicación. "mínimo 5 caracteres."'
                                 }))
     first_name = forms.CharField(label='Nombres', required=True,
                                 min_length=4, max_length=50,
