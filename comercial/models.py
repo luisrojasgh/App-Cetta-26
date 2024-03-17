@@ -12,7 +12,7 @@ class Usuario(AbstractUser):
         CEDULA_EXTRANJERIA='CE',_("Cédula de Extrangería")
     tipo_documento=models.CharField(max_length=2,choices=TipoDocumento.choices,verbose_name="Tipo de Documento")
     documento= models.CharField(max_length=50, verbose_name="Documento", null=True, blank=True,)
-    correo = models.EmailField(blank=False)
+    #correo = models.EmailField(blank=False)
     numero_telefono = models.CharField(max_length=20, null=True, blank=True)
     numero_celular = models.CharField(max_length=20, null=False, blank=False)
     direccion = models.CharField(max_length=250, null=False, blank=False)
