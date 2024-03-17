@@ -1,6 +1,7 @@
 from django import forms
-#from .models import Usuario
+from .models import Usuario
 from enum import Enum
+
 
 class TipoDocumento(Enum):
     CC = 'Cédula'
@@ -100,3 +101,9 @@ class RegistroUsuario(forms.Form):
                                         'id': 'barrio_vereda',
                                         'placeholder': 'El Barrio o Vereda donde vives'
                                     }))
+    
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if Usuario.objects.filter(username=username).exists():
+            raise forms.ValidationError('!Error¡ Ingresa otro nombre de usuario/a. El nombre de usuario está siendo usado por otro usuario/a.')
+        return username
