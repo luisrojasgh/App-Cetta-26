@@ -75,7 +75,6 @@ def registro_usuario(request):
     
 def actualizar_datos(request):
     titulo="Actualización de datos"
-
     context={
         "titulo": titulo,
     }
