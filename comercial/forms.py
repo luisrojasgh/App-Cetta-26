@@ -105,5 +105,13 @@ class RegistroUsuario(forms.Form):
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if Usuario.objects.filter(username=username).exists():
-            raise forms.ValidationError('!Error¡ Ingresa otro nombre de usuario/a. El nombre de usuario está siendo usado por otro usuario/a.')
+            raise forms.ValidationError('!Atención¡ Ingresa otro nombre de usuario/a. El nombre de usuario está siendo usado por otro usuario/a.')
         return username
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if Usuario.objects.filter(email=email).exists():
+            raise forms.ValidationError('!Atención¡ Ingresa otro correo. El que ingresaste está siendo usado por otro usuario/a.')
+
+        return email
