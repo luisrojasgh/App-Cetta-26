@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+#from django.db.models import Q
 from exhibicion.models import Producto
 
 # Función para renderizar los productos.
@@ -52,6 +52,7 @@ def productos_mostrar_jeans(request):
     }
     return render(request, "jeans.html", context)
 
+# Función para mostrar el detalle individual del producto.
 def detalle_producto(request, producto_id):
     titulo="Detalle del producto"
     producto = get_object_or_404(Producto, pk=producto_id)

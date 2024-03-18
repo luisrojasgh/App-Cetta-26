@@ -18,7 +18,7 @@
                   <p></p>
                   {% else %}
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="#">Registrarse</a>
+                      <a class="nav-link" aria-current="page" href="{% url 'registro' %}">Registrarse</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" aria-current="page" href="{% url 'login' %}">Ingresar</a>
@@ -45,7 +45,7 @@
                   {% if user.is_authenticated %}
                   <div class="btn-group">
                     <button class="btn btn-secondary bg-gradient btn-sm" type="button">{% bs_icon 'person-circle' %}
-                      Usuario
+                      {{user.first_name}}
                     </button>
                     <button type="button" class="btn btn-sm btn-dark bg-gradient dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                       <span class="visually-hidden">Toggle Dropdown</span>

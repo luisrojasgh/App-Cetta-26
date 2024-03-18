@@ -1,0 +1,44 @@
+{% load django_bootstrap5 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetta - {{titulo}}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+</head>
+<body class="bg-success bg-opacity-10 bg-gradient">
+
+{% block contenido %}
+
+<div class="container w-75 bg-dark bg-opacity-10 bg-gradient rounded shadow-sm mt-2 mb-2">
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible fade show {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {{ message }}
+    </div>
+  {% endfor %}
+  {% endif %}
+    <div class="row bg-transparent align-items-lg-stretch">
+        <div class="col bg-transparent">
+          <h3 class="text-center">Registro</h3>
+          <h4 class="text-center">¿Ya estás registrado/a? <a href="{% url 'login' %}">Ingresa aquí</a></h4>
+          <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-3 mb-4 px-4 shadow">Registrarse</button>
+            <a href="{% url 'index' %}"><button type="button" class="btn btn-primary mt-3 mb-4 px-4 shadow">Cancelar</button></a>
+          </form>    
+        </div>
+    </div>   
+</div>
+
+{% endblock contenido%}    
+</body>
+</html>
+
