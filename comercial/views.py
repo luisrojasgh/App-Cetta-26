@@ -40,7 +40,6 @@ def registro_usuario(request):
         password=form.cleaned_data.get('password')
         first_name=form.cleaned_data.get('first_name')
         last_name=form.cleaned_data.get('last_name')
-        #password2=form.cleaned_data.get('password2')
         tipo_documento=form.cleaned_data.get('tipo_documento')
         documento=form.cleaned_data.get('documento')
         numero_telefono=form.cleaned_data.get('numero_telefono')

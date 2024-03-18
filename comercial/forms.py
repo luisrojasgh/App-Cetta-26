@@ -59,8 +59,7 @@ class RegistroUsuario(forms.Form):
                                            'id': 'tipo_documento'
                                        }))
 
-    documento = forms.CharField(required=True,
-                                max_length=20,
+    documento = forms.IntegerField(required=True,
                                 widget=forms.TextInput(attrs={
                                     'class': 'form-control',
                                     'id': 'documento',
@@ -108,10 +107,21 @@ class RegistroUsuario(forms.Form):
             raise forms.ValidationError('!Atención¡ Ingresa otro nombre de usuario/a. El nombre de usuario está siendo usado por otro usuario/a.')
         return username
     
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
+    def clean_documento(self):
+        documento = self.cleaned_data.get('documento')
 
-        if Usuario.objects.filter(email=email).exists():
-            raise forms.ValidationError('!Atención¡ Ingresa otro correo. El que ingresaste está siendo usado por otro usuario/a.')
+        if Usuario.objects.filter(documento=documento).exists():
+            raise forms.ValidationError('!Atención¡ Ingresa otro numero de documento. El que ingresaste está siendo usado por otro usuario/a.')
 
-        return email
+        return documento
+    
+    def clean(self):
+        cleaned_data = super().clean()
+
+        if cleaned_data.get('password2') != cleaned_data.get('password'):
+            self.add_error('password2', '!Atención¡ La contraseña no coincide.')
+
+
+
+    
+            
