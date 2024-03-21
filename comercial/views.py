@@ -73,3 +73,9 @@ def registro_usuario(request):
     }
     return render(request, "comercial/registro.html", context)
     
+def actualizar_datos(request):
+    titulo="Actualización de datos"
+    context={
+        "titulo": titulo,
+    }
+    return render(request, "usuario/actualizar_datos.html", context)
