@@ -4,12 +4,12 @@
 
 {% block contenido %}
 {% if user.is_authenticated %}
-    {% include 'carrito.html' %}
-        <!-- Contenido para usuarios autenticados -->
-    {% else %}
-    <p></p>
-        <!-- Contenido para usuarios no autenticados -->
-    {% endif %}
+{% include 'carrito.html' %}
+    <!-- Contenido para usuarios autenticados -->
+{% else %}
+<p></p>
+    <!-- Contenido para usuarios no autenticados -->
+{% endif %}
 <div class="container bg-dark text-white-50 mt-2">
     <div class="row">
         <div class="col-5">
@@ -27,9 +27,66 @@
             {% else %}
               <p class="fs-3 text-white-50">$ {{producto.precio}}</p>
             {% endif %}
-            <a href="#" class="btn btn-outline-success bg-gradient">Agregar al carrito</a>
+
+            {% if user.is_authenticated %}
+            <a href="#"><button type="button" class="btn btn-outline-success bg-gradient">Agregar al carrito</button></a>
+            {% else %}
+
+            <!-- Button trigger modal -->
+            <button id="botonAbrirModal" type="button" class="btn btn-outline-success bg-gradient" data-toggle="modal" data-target="#exampleModal">
+            Agregar al carrito
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-dark" id="exampleModalLabel">Regístrate</h4>
+                    <button id="botonCerrarModalx" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                <div class="modal-body">
+                    <h5 class="text-dark">Primero debes regístrarte. ! No tomará mucho tiempo ¡</h5>
+                </div>
+                <div class="modal-footer">
+                    <button id="botonCerrarModal" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
+                    <a href="{% url 'registro' %}"><button type="button" class="btn btn-primary bg-gradient">Regístrarme</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %} 
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function(){
+      // Evento click para abrir el modal
+      $("#botonAbrirModal").click(function(){
+        $("#exampleModal").modal('show'); // Mostrar el modal
+      });
+    });
+  </script>
+  
+<script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarModal").click(function(){
+        $("#exampleModal").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarModalx").click(function(){
+        $("#exampleModal").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
+  
 {% endblock contenido %}
