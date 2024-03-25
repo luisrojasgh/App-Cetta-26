@@ -120,7 +120,82 @@ class RegistroUsuario(forms.Form):
 
         if cleaned_data.get('password2') != cleaned_data.get('password'):
             self.add_error('password2', '!Atención¡ La contraseña no coincide.')
+    
 
+class ActualizarUsuarioForm(forms.Form):
+    first_name = forms.CharField(label='Nombres', required=True,
+                                min_length=4, max_length=50,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'first_name',
+                                    'placeholder': 'Tu nombre'
+                                }))
+    last_name = forms.CharField(label='Apellidos', required=True,
+                                min_length=4, max_length=50,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'last_name',
+                                    'placeholder': 'Tus apellidos'
+                                }))
+
+    email = forms.EmailField(label='Correo electrónico', required=True,
+                                widget=forms.EmailInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'email',
+                                    'placeholder': 'tucorreo@correo.com'
+                                }))
+   
+    tipo_documento = forms.ChoiceField(choices=TipoDocumento.choices(), required=True,
+                                       widget=forms.Select(attrs={
+                                           'class': 'form-control',
+                                           'id': 'tipo_documento'
+                                       }))
+
+    documento = forms.IntegerField(required=True,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'documento',
+                                    'placeholder': 'Tu número de documento de identidad'
+                                }))
+    numero_telefono = forms.CharField(label='Número de teléfono fijo', required=False,  
+                                       max_length=15,
+                                       widget=forms.TextInput(attrs={
+                                           'class': 'form-control',
+                                           'id': 'numero_telefono',
+                                           'placeholder': 'Tu número de teléfono fijo'
+                                       }))
+    numero_celular = forms.CharField(label='Número de celular', required=True,
+                                     max_length=20,
+                                     widget=forms.TextInput(attrs={
+                                         'class': 'form-control',
+                                         'id': 'numero_celular',
+                                         'placeholder': 'Tu número de celular'
+                                     }))
+    direccion = forms.CharField(label='Dirección', required=True,
+                                max_length=200,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'direccion',
+                                    'placeholder': 'Tu dirección de residencia'
+                                }))
+    municipio = forms.CharField(required=True,
+                                max_length=50,
+                                widget=forms.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'id': 'municipio',
+                                    'placeholder': 'El Municipio donde vives'
+                                }))
+    barrio_vereda = forms.CharField(label='Barrio o Vereda', required=True,
+                                    max_length=50,
+                                    widget=forms.TextInput(attrs={
+                                        'class': 'form-control',
+                                        'id': 'barrio_vereda',
+                                        'placeholder': 'El Barrio o Vereda donde vives'
+                                    }))
+
+
+    
+    
 
 
     

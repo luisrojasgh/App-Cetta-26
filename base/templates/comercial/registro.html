@@ -28,7 +28,7 @@
         <div class="col bg-transparent">
           <h3 class="text-center">Registro</h3>
           <h4 class="text-center">¿Ya estás registrado/a? <a href="{% url 'login' %}">Ingresa aquí</a></h4>
-          <form method="post">
+          <form method="POST">
             {% csrf_token %}
             {{ form }}
             <button type="submit" class="btn btn-primary mt-3 mb-4 px-4 shadow">Registrarse</button>
