@@ -1,18 +1,39 @@
 {% extends 'partials/body.html' %}
-{% load static %}
 
 {% block contenido %}
-
+{% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-dismissible fade show fw-bold {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+      </div>
+    {% endfor %}
+    {% endif %}
 <div class="container">
-
-    <h2>Datos del usuario</h2>
-    <br>
-    <h4>{{user.get_nombre_completo}}</h4>
-    <br>
-    <h5>{{user.numero_celular}}</h5>
-    <h5>{{user.direccion_completa}}</h5>
-    
-
+<br>
+<ul class="nav nav-pills nav justify-content-center">
+    <li class="nav-item px-5">
+      <h4><a class="nav-link" href="#">Cambiar contraseña</a></h4>
+    </li>
+    <li class="nav-item">
+      <h4><a class="nav-link" href="#">Eliminar Cuenta</a></h4>
+    </li>
+  </ul>
+  <br>
 </div>
+<div class="container w-75 bg-dark bg-opacity-10 bg-gradient rounded shadow-sm mt-2 mb-2">
+   
+      <div class="row bg-transparent align-items-lg-stretch">
+          <div class="col bg-transparent">
+            <h3 class="text-center mt-2">Editar datos</h3>
+            <form method="POST">
+              {% csrf_token %}
+              {{ form }}
+              <button type="submit" class="btn btn-primary mt-3 mb-4 px-4 shadow">Actualizar</button>
+              <a href="{% url 'index' %}"><button type="button" class="btn btn-primary mt-3 mb-4 px-4 shadow">Cancelar</button></a>
+            </form>    
+          </div>
+      </div>   
+  </div>
 
 {% endblock contenido %}
