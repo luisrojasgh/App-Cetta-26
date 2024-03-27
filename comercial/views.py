@@ -80,15 +80,11 @@ def actualizar_datos(request, id):
     if request.method=="POST":
         form= ActualizarUsuarioForm(request.POST)
         if form.is_valid():
-            aviso_usuario_documento=False
-            copia_documento = user.documento
-            user.documento = None
+            
             #Obteniendo los datos del formulario.
             email=form.cleaned_data.get('email')
             first_name=form.cleaned_data.get('first_name')
             last_name=form.cleaned_data.get('last_name')
-            tipo_documento=form.cleaned_data.get('tipo_documento')
-            documento=form.cleaned_data.get('documento')
             numero_telefono=form.cleaned_data.get('numero_telefono')
             numero_celular=form.cleaned_data.get('numero_celular')
             direccion=form.cleaned_data.get('direccion')
@@ -99,13 +95,6 @@ def actualizar_datos(request, id):
             user.email=email
             user.first_name = first_name
             user.last_name = last_name
-            user.tipo_documento = tipo_documento
-            if Usuario.objects.filter(documento=documento).exists():
-                messages.error(request, '!Atención¡ Ingresa otro documento. El que has ingresado está siendo usado por otro usuario/a')
-                user.documento = copia_documento
-                aviso_usuario_documento=True
-            else:
-                user.documento = documento
             user.numero_telefono = numero_telefono
             user.numero_celular = numero_celular
             user.direccion = direccion
@@ -113,14 +102,11 @@ def actualizar_datos(request, id):
             user.barrio_vereda = barrio_vereda
 
             user.save()
-            if aviso_usuario_documento:
-                messages.success(request, 'Los demás datos se han actualizado de forma exitosa.')
-            else:
-                messages.success(request, 'Has actualizado tus datos de forma exitosa.')
+           
+            messages.success(request, 'Has actualizado tus datos de forma exitosa.')
             return redirect("index")
         else:
             messages.error(request, 'Error al actualizar.')
-
     else:
         form=ActualizarUsuarioForm()
 

@@ -145,18 +145,6 @@ class ActualizarUsuarioForm(forms.Form):
                                     'placeholder': 'tucorreo@correo.com'
                                 }))
    
-    tipo_documento = forms.ChoiceField(choices=TipoDocumento.choices(), required=True,
-                                       widget=forms.Select(attrs={
-                                           'class': 'form-control',
-                                           'id': 'tipo_documento'
-                                       }))
-
-    documento = forms.IntegerField(required=True,
-                                widget=forms.TextInput(attrs={
-                                    'class': 'form-control',
-                                    'id': 'documento',
-                                    'placeholder': 'Tu número de documento de identidad'
-                                }))
     numero_telefono = forms.CharField(label='Número de teléfono fijo', required=False,  
                                        max_length=15,
                                        widget=forms.TextInput(attrs={
