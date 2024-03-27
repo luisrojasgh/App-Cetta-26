@@ -10,6 +10,14 @@
   -->
 
 {% comment %} Slider {% endcomment %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible fade show fw-bold {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
 <section>
     <div class="carrusel">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -41,14 +49,7 @@
 
     </div>
 </section>
-{% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-dismissible fade show {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      {{ message }}
-    </div>
-  {% endfor %}
-  {% endif %}
+
 <!-- Carrito -->
 {% if user.is_authenticated %}
 <div class="container" style="position: sticky; top:0rem; z-index: 1;">
