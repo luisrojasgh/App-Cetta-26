@@ -113,6 +113,9 @@ class RegistroUsuario(forms.Form):
         if Usuario.objects.filter(documento=documento).exists():
             raise forms.ValidationError('!Atención¡ Ingresa otro numero de documento. El que ingresaste está siendo usado por otro usuario/a.')
 
+        if documento < 0:
+            raise forms.ValidationError('!Atención¡ El numero de documento no puede ser un valor negativo.')
+
         return documento
     
     def clean(self):
@@ -194,7 +197,13 @@ class ActualizarUsuarioForm(forms.Form):
                                         'placeholder': 'El Barrio o Vereda donde vives'
                                     }))
 
+    def clean_documento(self):
+        documento = self.cleaned_data.get('documento')
 
+        if documento < 0:
+            raise forms.ValidationError('!Atención¡ El numero de documento no puede ser un valor negativo.')
+
+        return documento
 
 
     
