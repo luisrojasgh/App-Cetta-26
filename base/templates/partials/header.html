@@ -52,13 +52,11 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="#">{% bs_icon 'bag-fill' %}Mis Compras</a></li>
-                      <li id="abrirActualizar"><a class="dropdown-item">{% bs_icon 'arrow-clockwise' %}Actualizar Datos</a></li>
+                      <li id="abrirActualizar"><a class="dropdown-item">{% bs_icon 'arrow-clockwise' %}Ver mis Datos</a></li>
                           <li><hr class="dropdown-divider"></li> 
                       <li><a class="dropdown-item" href="{% url 'logout' %}">{% bs_icon 'box-arrow-left' %}Cerrar Sesión</a></li>
                     </ul>
-                   <!--  <ul class="dropdown-menu">
-                      ...
-                    </ul> -->
+                  
                   </div>
                       <!-- Contenido para usuarios autenticados -->
                   {% else %}
@@ -80,7 +78,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title text-dark" id="exampleModalLabel">Tus datos</h4>
-            <button id="botonCerrarModalx" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button id="botonCerrarActualizarx" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -88,35 +86,68 @@
           <table class="table table-sm">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
+                <th colspan="2" scope="col"></th>
+                {% comment %} <th scope="col">First</th>
                 <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Handle</th> {% endcomment %}
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Nombre</td>
+                <td>{{user.first_name}}</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>Apellidos</td>
+                <td>{{user.last_name}}</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td>Correo</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Tipo de documento</td>
+                <td>{{user.tipo_documento}}</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Documento</td>
+                <td>{{user.documento}}</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Número de teléfono</td>
+                <td>{{user.numero_telefono}}</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Número de celular</td>
+                <td>{{user.numero_celular}}</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Dirección</td>
+                <td>{{user.direccion}}</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Municipio</td>
+                <td>{{user.municipio}}</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>Barrio o vereda</td>
+                <td>{{user.barrio_vereda}}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="modal-footer">
-            <button id="botonCerrarModal" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
+            <button id="botonCerrarActualizar" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
             <a href="{% url 'actualizar_datos' user.id %}"><button type="button" class="btn btn-warning bg-gradient">Editar datos</button></a>
           </div>
         </div>
@@ -135,7 +166,7 @@
 <script>
   $(document).ready(function(){
     // Evento click para cerrar el modal
-    $("#botonCerrarModal").click(function(){
+    $("#botonCerrarActualizar").click(function(){
       $("#modalActualizar").modal('hide'); // Cerrar el modal
     });
   });
@@ -144,7 +175,7 @@
 <script>
   $(document).ready(function(){
     // Evento click para cerrar el modal
-    $("#botonCerrarModalx").click(function(){
+    $("#botonCerrarActualizarx").click(function(){
       $("#modalActualizar").modal('hide'); // Cerrar el modal
     });
   });
