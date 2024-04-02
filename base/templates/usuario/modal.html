@@ -1,0 +1,95 @@
+<!--Modal-->
+<div class="modal fade" id="modalActualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-dark" id="exampleModalLabel">Tus datos</h4>
+          <button id="botonCerrarActualizarx" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-bold">Nombre</td>
+              <td>{{user.first_name}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Apellidos</td>
+              <td>{{user.last_name}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Correo</td>
+              <td>{{user.email}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Tipo de documento</td>
+              <td>{{user.tipo_documento}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Documento</td>
+              <td>{{user.documento}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Número de teléfono</td>
+              <td>{{user.numero_telefono}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Número de celular</td>
+              <td>{{user.numero_celular}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Dirección</td>
+              <td>{{user.direccion}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Municipio</td>
+              <td>{{user.municipio}}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Barrio o vereda</td>
+              <td>{{user.barrio_vereda}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+          <button id="botonCerrarActualizar" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
+          <a href="{% url 'actualizar_datos' user.id %}"><button type="button" class="btn btn-warning bg-gradient">Editar datos</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      // Evento click para abrir el modal
+      $("#abrirActualizar").click(function(){
+        $("#modalActualizar").modal('show'); // Mostrar el modal
+      });
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarActualizar").click(function(){
+        $("#modalActualizar").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarActualizarx").click(function(){
+        $("#modalActualizar").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
