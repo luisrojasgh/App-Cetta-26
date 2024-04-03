@@ -12,7 +12,7 @@ def login_usuario(request):
         password = request.POST.get('password')
 
         user = authenticate(username=username, password=password)
-        if user:
+        if user and user.is_active:
             login(request, user)
             messages.success(request, '¡Bienvenido/a! Has ingresado satisfactoriamente')
             return redirect('index')
@@ -133,3 +133,11 @@ def actualizar_datos(request, id):
         "form":form
     }
     return render(request, "usuario/actualizar_datos.html", context)
+
+# Función para eliminar usuarios: Cerrar la cuenta del usuario.
+def cerrar_cuenta_usuario(request, id):
+    user = Usuario.objects.get(id = id)
+    user.delete()
+    logout(request)
+    messages.success(request, 'Has cerrado tu cuenta de forma exitosa.')
+    return redirect("index")

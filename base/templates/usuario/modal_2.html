@@ -1,0 +1,47 @@
+<!--Modal para confirmar eliminación de cuenta del usuario-->
+<div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-dark" id="exampleModalLabel">Eliminar cuenta</h4>
+          <button id="botonCerrarConfirmarx" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body">
+        <h5>!Atención¡ Al eliminar tu cuenta no tendrás mas acceso y tus datos serán eliminados de nuestra base de datos.</h5>
+      </div>
+      <div class="modal-footer">
+          <button id="botonCerrarConfirmar" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
+          <a href="{% url 'cerrar_cuenta' user.id %}"><button type="button" class="btn btn-warning bg-gradient">Eliminar cuenta</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      // Evento click para abrir el modal
+      $("#AbrirconfirmarEliminar").click(function(){
+        $("#confirmarEliminar").modal('show'); // Mostrar el modal
+      });
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarConfirmar").click(function(){
+        $("#confirmarEliminar").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      // Evento click para cerrar el modal
+      $("#botonCerrarConfirmarx").click(function(){
+        $("#confirmarEliminar").modal('hide'); // Cerrar el modal
+      });
+    });
+  </script>
