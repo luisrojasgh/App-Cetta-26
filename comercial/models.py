@@ -18,7 +18,6 @@ class Usuario(AbstractUser):
     direccion = models.CharField(max_length=250, null=False, blank=False)
     municipio = models.CharField(max_length=100, null=False, blank=False)
     barrio_vereda = models.CharField(max_length=100, null=False, blank=False)
-    estado=models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural="Usuarios"
