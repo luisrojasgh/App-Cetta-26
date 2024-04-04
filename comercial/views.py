@@ -12,7 +12,7 @@ def login_usuario(request):
         password = request.POST.get('password')
 
         user = authenticate(username=username, password=password)
-        if user and user.is_active:
+        if user:
             login(request, user)
             messages.success(request, '¡Bienvenido/a! Has ingresado satisfactoriamente')
             return redirect('index')
