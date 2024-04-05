@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Usuario
-from .forms import RegistroUsuario, ActualizarUsuarioForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+from .forms import RegistroUsuario, ActualizarUsuarioForm, CambiarContraseniaForm
 
 # Create your views here.
 def login_usuario(request):
@@ -141,3 +143,24 @@ def cerrar_cuenta_usuario(request, id):
     logout(request)
     messages.success(request, 'Has cerrado tu cuenta de forma exitosa.')
     return redirect("index")
+
+@login_required
+def cambiar_contrasenia(request):
+    #user = Usuario.objects.get(id = id)
+    titulo="Cambio de contraseña"
+
+    if request.method == 'POST':
+        form = CambiarContraseniaForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Importante para no desloguear al usuario.
+            messages.success(request, 'Has cambiado tu contraseña correctamente.')
+            return redirect('index')  
+    else:
+        form = CambiarContraseniaForm(user=request.user)
+
+    context={
+        "titulo": titulo,
+        "form":form
+    }
+    return render(request, "usuario/cambiar_contrasenia.html", context)
