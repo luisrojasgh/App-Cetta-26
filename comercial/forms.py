@@ -1,7 +1,8 @@
 from django import forms
 from .models import Usuario
 from enum import Enum
-
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.forms import PasswordChangeForm
 
 class TipoDocumento(Enum):
     CC = 'Cédula'
@@ -204,6 +205,21 @@ class ActualizarUsuarioForm(forms.Form):
             raise forms.ValidationError('!Atención¡ El numero de documento no puede ser un valor negativo.')
 
         return documento
+
+class CambiarContraseniaForm(PasswordChangeForm):
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data["old_password"]
+        if not check_password(old_password, self.user.password):
+            raise forms.ValidationError("!Atención¡ La contraseña ingresada es incorrecta.")
+        return old_password
+
+    def clean_new_password2(self):
+        password1 = self.cleaned_data.get('new_password1')
+        password2 = self.cleaned_data.get('new_password2')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("!Atención¡ Las contraseñas no coinciden.")
+        return password2
 
 
     

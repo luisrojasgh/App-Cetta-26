@@ -1,0 +1,28 @@
+{% extends 'partials/body.html' %}
+
+{% block contenido %}
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-dismissible fade show fw-bold {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+      </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container w-75 bg-dark bg-gradient text-white-50 rounded shadow-sm mt-2 mb-2">
+        <h3>Cambio de contraseña</h3>
+        <div class="card mb-3">
+            <div class="card-body text-dark">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-warning bg-gradient mt-3 mb-4 px-4 shadow">Cambiar contraseña</button>
+                    <a href="{% url 'actualizar_datos' user.id %}"><button type="button" class="btn btn-secondary bg-gradient mt-3 mb-4 px-4 shadow">Cancelar</button></a>
+                  </form>
+            </div>
+          </div>
+          <br>
+    </div>
+
+{% endblock contenido %}
