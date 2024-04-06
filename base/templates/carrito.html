@@ -18,14 +18,13 @@
                   <th>Valor</th>
                   <th>Talla</th>
                   <th>Sum/Res</th>
-                  <!-- Otros encabezados según tus campos -->
               </tr>
           </thead>
           <tbody>
               <tr>
-                  <td>1</td>
+                  <td>2</td>
                   <td>Tacones lux</td>
-                  <td>$ 31.000</td>
+                  <td>$ 62.000</td>
                   <td>
                     <select class="form-select form-select-sm" aria-label="Small select example">
                       <option selected>Selecciona la talla</option>
@@ -39,17 +38,13 @@
                     <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</button>
                     <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</button>
                   </td>
-                  <!-- Otros campos según tus necesidades -->
               </tr>
-              <tr>
+              <tfoot>
+                <!--<td><h6><h6></td>-->
+                <td colspan="3"><h6>Subotal: <b>$ 62.000</b><h6></td>
+                <td><button type="button" class="btn btn-light btn-sm">Comprar</button></td>
                 <td><button type="button" class="btn btn-light btn-sm">Vaciar</button></td>
-                <td><h6>Subotal:<h6></td>
-                <td colspan="2"><h6><b>$ 73.000</b><h6></td>
-                <td>
-                    <button type="button" class="btn btn-light btn-sm mb-1">Comprar</button>
-                    <button type="button" class="btn btn-light btn-sm">Cancelar</button>
-                </td>
-              </tr>
+              </tfoot>
           </tbody>
         </table>
       <li>
