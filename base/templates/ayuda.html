@@ -2,18 +2,19 @@
 
 {% block contenido %}
 <div class="container">
+  <br>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="#preguntas">Preguntas frecuentes</a></li>
-      <li class="breadcrumb-item"><a href="#contacto">Líneas de atención y contacto</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'index' %}" style="text-decoration: none;">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#preguntas" style="text-decoration: none;">Preguntas frecuentes</a></li>
+      <li class="breadcrumb-item"><a href="#contacto" style="text-decoration: none;">Líneas de atención y contacto</a></li>
       <li class="breadcrumb-item active" aria-current="page">Ayuda</li>
     </ol>
   </nav>   
 </div>
-
+<hr class="border-primary">
 <div class="container">
-  <div class="row" id="ayuda">
+  <div class="row bg-secondary bg-opacity-10" id="ayuda">
     <div class="col-md">
   <h2>Ayuda</h2> 
   <p><pre>
@@ -42,7 +43,7 @@ Puede incluir preguntas frecuentes, tutoriales paso a paso y opciones de contact
     </div>
   </div>
 
-<div class="row" id="preguntas">
+<div class="row bg-secondary bg-opacity-10" id="preguntas">
   <div class="col-md">
   <h2>Preguntas frecuentes</h2>
     <p><pre>
@@ -80,7 +81,7 @@ Algunas preguntas que podrían surgir de los usuario/as en relación con la tien
 <hr>
   </div>
 </div>
-<div class="row" id="contacto">
+<div class="row bg-secondary bg-opacity-10" id="contacto">
   <div class="col-md">
   <h2>Lineas de atención y contacto</h2>
     <p><pre>
