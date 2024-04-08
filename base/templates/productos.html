@@ -3,6 +3,15 @@
 
 {% block contenido %}
 
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible fade show fw-bold {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
 <!-- Creditos:
   https://www.pexels.com/es-es/buscar/moda/ 
   https://pixabay.com/es/images/search/moda%20mujer/

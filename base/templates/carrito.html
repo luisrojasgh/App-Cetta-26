@@ -21,7 +21,38 @@
               </tr>
           </thead>
           <tbody>
+            {% if request.session.carrito.items %}
+              {% for key, value in request.session.carrito.items %}
               <tr>
+                <td>{{value.cantidad}}</td>
+                <td>{{value.nombre}}</td>
+                {#<td>$ 62.000</td>#}
+                <td>
+                  <select class="form-select form-select-sm" aria-label="Small select example">
+                    <option selected>Selecciona la talla</option>
+                    <option value="1">S</option>
+                    <option value="2">M</option>
+                    <option value="3">L</option>
+                    <option value="3">XL</option>
+                  </select>
+                </td>
+                <td>
+                  <a href="{% url 'agregar_al_carrito' value.producto_id %}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</a>
+                  {#<button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</button>#}
+                  <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</button>
+                </td>
+            </tr>
+              {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5">
+                    <div class="alert alert-danger text-center">
+                      Sin productos en el carrito
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+              {% comment %} <tr>
                   <td>2</td>
                   <td>Tacones lux</td>
                   <td>$ 62.000</td>
@@ -38,13 +69,13 @@
                     <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</button>
                     <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</button>
                   </td>
-              </tr>
-              <tfoot>
+              </tr> {% endcomment %}
+            </tbody>
+              {% comment %} <tfoot>
                 <td colspan="3"><h6>Subotal: <b>$ 62.000</b><h6></td>
                 <td><button type="button" class="btn btn-light btn-sm">Comprar</button></td>
                 <td><button type="button" class="btn btn-light btn-sm">Vaciar</button></td>
-              </tfoot>
-          </tbody>
+              </tfoot> {% endcomment %}  
         </table>
       <li>
     </ul>

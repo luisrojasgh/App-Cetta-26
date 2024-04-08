@@ -5,6 +5,8 @@ from .models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from .forms import RegistroUsuario, ActualizarUsuarioForm, CambiarContraseniaForm
+from .carrito import Carrito 
+from exhibicion.models import Producto
 
 # Create your views here.
 def login_usuario(request):
@@ -144,6 +146,7 @@ def cerrar_cuenta_usuario(request, id):
     messages.success(request, 'Has cerrado tu cuenta de forma exitosa.')
     return redirect("index")
 
+# Función para cambiar la contraseña del usuario.
 @login_required
 def cambiar_contrasenia(request):
     #user = Usuario.objects.get(id = id)
@@ -164,3 +167,15 @@ def cambiar_contrasenia(request):
         "form":form
     }
     return render(request, "usuario/cambiar_contrasenia.html", context)
+
+# Función para agregar producto al carrito.
+def agregar_producto_carrito(request, producto_id):
+
+    carro=Carrito(request)
+
+    producto=Producto.objects.get(id=producto_id)
+
+    carro.agregar_al_carrito(producto=producto)
+
+    messages.success(request, 'Has adicionado el producto al carrito.')
+    return redirect("productos")
