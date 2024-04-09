@@ -26,20 +26,45 @@
               <tr>
                 <td>{{value.cantidad}}</td>
                 <td>{{value.nombre}}</td>
-                {#<td>$ 62.000</td>#}
-                <td>
-                  <select class="form-select form-select-sm" aria-label="Small select example">
-                    <option selected>Selecciona la talla</option>
-                    <option value="1">S</option>
-                    <option value="2">M</option>
-                    <option value="3">L</option>
-                    <option value="3">XL</option>
-                  </select>
-                </td>
+                <td>$ 62.000</td>
+                {% if value.categoria == 'CALZADO' %}
+                  <td>
+                    <select class="form-select form-select-sm" aria-label="Small select example">
+                      <option selected>Selecciona la talla</option>
+                      <option value="1">36</option>
+                      <option value="2">37</option>
+                      <option value="3">38</option>
+                      <option value="4">38.5</option>
+                      <option value="5">39</option>
+                      <option value="6">40</option>
+                      <option value="7">40.5</option>
+                      <option value="8">41</option>
+                    </select>
+                  </td>
+                {% elif value.categoria == 'VESTIDOS' %}
+                  <td>
+                    <select class="form-select form-select-sm" aria-label="Small select example">
+                      <option selected>Selecciona la talla</option>
+                      <option value="1">S</option>
+                      <option value="2">M</option>
+                      <option value="3">L</option>
+                      <option value="4">XL</option>
+                    </select>
+                  </td>
+                {% else %}
+                  <td>
+                    <select class="form-select form-select-sm" aria-label="Small select example">
+                      <option selected>Selecciona la talla</option>
+                      <option value="1">32</option>
+                      <option value="2">34</option>
+                      <option value="3">36</option>
+                      <option value="4">38</option>
+                    </select>
+                  </td>
+                {% endif %}
                 <td>
                   <a href="{% url 'agregar_al_carrito' value.producto_id %}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</a>
-                  {#<button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</button>#}
-                  <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</button>
+                  <a href="{% url 'restar_del_carrito' value.producto_id %}" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</a>
                 </td>
             </tr>
               {% endfor %}

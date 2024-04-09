@@ -172,10 +172,17 @@ def cambiar_contrasenia(request):
 def agregar_producto_carrito(request, producto_id):
 
     carro=Carrito(request)
-
     producto=Producto.objects.get(id=producto_id)
-
     carro.agregar_al_carrito(producto=producto)
 
     messages.success(request, 'Has adicionado el producto al carrito.')
+    return redirect("productos")
+
+def restar_producto_carrito(request, producto_id):
+
+    carro=Carrito(request)
+    producto=Producto.objects.get(id=producto_id)
+    carro.restar_del_carrito(producto=producto)
+
+    messages.success(request, 'Has restado el producto al carrito.')
     return redirect("productos")

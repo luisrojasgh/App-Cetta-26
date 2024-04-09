@@ -31,7 +31,7 @@ class Producto(models.Model):
     precio = models.PositiveIntegerField(verbose_name="Precio")
     referencia = models.CharField(max_length=50)
     estado = models.BooleanField(default=True)
-    categoria = models.CharField(max_length=20, choices=Categoria.choices, verbose_name="Categoría", default=Categoria.CALZADO)
+    categoria = models.CharField(max_length=20, choices=Categoria.choices, verbose_name="Categoria", default=Categoria.CALZADO)
     talla = models.CharField(max_length=4, choices=Talla.choices, verbose_name="Talla", default=Talla.TALLA_S)
     imagen = models.ImageField(upload_to='productos/', null=True, blank=True)
 

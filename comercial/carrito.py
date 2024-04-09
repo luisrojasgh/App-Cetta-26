@@ -16,6 +16,7 @@ class Carrito:
             self.carrito[producto.id]={
                 "producto_id":producto.id,
                 "nombre":producto.nombre,
+                "categoria":producto.categoria,
                 "precio":int(producto.precio),
                 "cantidad":1
             }
@@ -37,7 +38,7 @@ class Carrito:
             del self.carrito[producto.id]
             self.guardar_carrito()
 
-    def restar_producto(self, producto):
+    def restar_del_carrito(self, producto):
         for key, value in self.carrito.items():
             if key==str(producto.id):
                 value["precio"]=int(value["precio"])-producto.precio
