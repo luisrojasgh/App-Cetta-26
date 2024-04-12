@@ -11,15 +11,21 @@
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li>
         <table class="table table-striped table-hover table-md">
+        {% if request.session.carrito.items %}
+        <thead>
+          <tr>
+              <th>Cantidad</th>
+              <th>Articulo</th>
+              <th>Valor</th>
+              <th>Talla</th>
+              <th>Sum/ Res / X</th>
+          </tr>
+      </thead>  
+        {% else %}
           <thead>
-              <tr>
-                  <th>Cantidad</th>
-                  <th>Articulo</th>
-                  <th>Valor</th>
-                  <th>Talla</th>
-                  <th>Sum/Res</th>
-              </tr>
+            <p></p> 
           </thead>
+        {% endif %}
           <tbody>
             {% if request.session.carrito.items %}
               {% for key, value in request.session.carrito.items %}
@@ -62,9 +68,10 @@
                     </select>
                   </td>
                 {% endif %}
-                <td>
-                  <a href="{% url 'agregar_al_carrito' value.producto_id %}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</a>
-                  <a href="{% url 'restar_del_carrito' value.producto_id %}" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</a>
+                <td class="d-flex">
+                  <a href="{% url 'agregar_al_carrito' value.producto_id %}" class="btn btn-outline-success btn-sm mx-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</a>
+                  <a href="{% url 'restar_del_carrito' value.producto_id %}" class="btn btn-outline-danger btn-sm mx-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</a>
+                  <a href="{% url 'eliminar_del_carrito' value.producto_id %}" class="btn btn-outline-dark btn-sm mx-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Quitar el producto">X</a>
                 </td>
             </tr>
               {% endfor %}

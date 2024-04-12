@@ -178,11 +178,22 @@ def agregar_producto_carrito(request, producto_id):
     messages.success(request, 'Has adicionado el producto al carrito.')
     return redirect("productos")
 
+# Función para restar producto del carrito.
 def restar_producto_carrito(request, producto_id):
 
     carro=Carrito(request)
     producto=Producto.objects.get(id=producto_id)
     carro.restar_del_carrito(producto=producto)
 
-    messages.success(request, 'Has restado el producto al carrito.')
+    messages.success(request, 'Has restado el producto del carrito.')
+    return redirect("productos")
+
+# Función para quitar producto del carrito.
+def eliminar_producto_carrito(request, producto_id):
+
+    carro=Carrito(request)
+    producto=Producto.objects.get(id=producto_id)
+    carro.eliminar_del_carrito(producto=producto)
+
+    messages.success(request, 'Has quitado el producto del carrito.')
     return redirect("productos")
