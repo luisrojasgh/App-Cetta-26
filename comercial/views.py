@@ -197,3 +197,11 @@ def eliminar_producto_carrito(request, producto_id):
 
     messages.success(request, 'Has quitado el producto del carrito.')
     return redirect("productos")
+
+# Función para dejar el carrito vacío.
+def vaciar_carrito(request):
+
+    carro=Carrito(request)
+    carro.vaciar_carrito()
+
+    return redirect("productos")

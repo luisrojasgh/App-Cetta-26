@@ -10,29 +10,30 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li>
-        <table class="table table-striped table-hover table-md">
-        {% if request.session.carrito.items %}
-        <thead>
-          <tr>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-md">
+          {% if request.session.carrito.items %}
+          <thead>
+            <tr>
               <th>Cantidad</th>
               <th>Articulo</th>
               <th>Valor</th>
               <th>Talla</th>
               <th>Sum/ Res / X</th>
-          </tr>
-      </thead>  
-        {% else %}
-          <thead>
-            <p></p> 
-          </thead>
-        {% endif %}
+            </tr>
+          </thead>  
+          {% else %}
+            <thead>
+              <p></p> 
+            </thead>
+          {% endif %}
           <tbody>
             {% if request.session.carrito.items %}
               {% for key, value in request.session.carrito.items %}
               <tr>
                 <td>{{value.cantidad}}</td>
                 <td>{{value.nombre}}</td>
-                <td>$ 62.000</td>
+                <td>$ {{value.precio}}</td>
                 {% if value.categoria == 'CALZADO' %}
                   <td>
                     <select class="form-select form-select-sm" aria-label="Small select example">
@@ -73,42 +74,29 @@
                   <a href="{% url 'restar_del_carrito' value.producto_id %}" class="btn btn-outline-danger btn-sm mx-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</a>
                   <a href="{% url 'eliminar_del_carrito' value.producto_id %}" class="btn btn-outline-dark btn-sm mx-1" data-bs-toggle="tooltip" data-bs-placement="right" title="Quitar el producto">X</a>
                 </td>
-            </tr>
+              </tr>
               {% endfor %}
             {% else %}
             <tr>
-                <td colspan="5">
-                    <div class="alert alert-danger text-center">
-                      Sin productos en el carrito
-                    </div>
-                </td>
+              <td colspan="5">
+                  <div class="alert alert-danger text-center">
+                    Tu carrito está vacío
+                  </div>
+              </td>
             </tr>
             {% endif %}
-              {% comment %} <tr>
-                  <td>2</td>
-                  <td>Tacones lux</td>
-                  <td>$ 62.000</td>
-                  <td>
-                    <select class="form-select form-select-sm" aria-label="Small select example">
-                      <option selected>Selecciona la talla</option>
-                      <option value="1">S</option>
-                      <option value="2">M</option>
-                      <option value="3">L</option>
-                      <option value="3">XL</option>
-                    </select>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Agregar un producto mas">+</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Restar un producto">-</button>
-                  </td>
-              </tr> {% endcomment %}
             </tbody>
-              {% comment %} <tfoot>
+            {% if request.session.carrito.items %}
+              <tfoot>
                 <td colspan="3"><h6>Subotal: <b>$ 62.000</b><h6></td>
                 <td><button type="button" class="btn btn-light btn-sm">Comprar</button></td>
-                <td><button type="button" class="btn btn-light btn-sm">Vaciar</button></td>
-              </tfoot> {% endcomment %}  
-        </table>
+                <td><a href="{% url 'vaciar_carrito' %}" class="btn btn-light btn-sm">Vaciar carrito</a></td>
+              </tfoot>
+            {% else %}
+            <p></p>
+            {% endif %}
+          </table>
+        </div>
       <li>
     </ul>
   </div>

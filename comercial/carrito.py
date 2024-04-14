@@ -48,6 +48,6 @@ class Carrito:
                 break
         self.guardar_carrito()
 
-    def limpiar_carrito(self):
+    def vaciar_carrito(self):
         self.session["carrito"]={}
         self.session.modified=True
