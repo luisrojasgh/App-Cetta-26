@@ -88,7 +88,7 @@
             </tbody>
             {% if request.session.carrito.items %}
               <tfoot>
-                <td colspan="3"><h6>Subotal: <b>$ 62.000</b><h6></td>
+                <td colspan="3"><h6>Subotal: <b>$ {{subtotal}}</b><h6></td>
                 <td><button type="button" class="btn btn-light btn-sm">Comprar</button></td>
                 <td><a href="{% url 'vaciar_carrito' %}" class="btn btn-light btn-sm">Vaciar carrito</a></td>
               </tfoot>
