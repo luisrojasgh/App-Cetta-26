@@ -38,7 +38,7 @@
           <div class="card-body">
             <h5 class="card-title text-white-50">{{producto.nombre}}</h5>
             
-            {% if producto.descuento > 0%}
+            {% if producto.descuento > 0 %}
               <p class="fs-4 text-danger display-2">Antes $<del>{{producto.precio}}</del></p>
               <p class="fs-3 text-white-50">Ahora $ {{producto.precio_con_descuento}}</p>
             {% else %}
