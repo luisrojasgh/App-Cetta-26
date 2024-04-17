@@ -15,7 +15,7 @@
     <li class="nav-item px-5">
       <h4><a class="nav-link" href="{% url 'cambiar_contraseña' %}">Cambiar contraseña</a></h4>
     </li>
-    <li class="nav-item">
+    <li class="nav-item"> <!-- Desde aquí se abre el modal por medio del Id  -->
       <h4><a id="AbrirconfirmarEliminar" class="nav-link" href="#">Eliminar Cuenta</a></h4>
     </li>
   </ul>
@@ -35,7 +35,7 @@
           </div>
       </div>   
   </div>
-
+  <!-- Aquí se incluye el modal que se abre en la linea 18 -->
   {% include 'usuario/modal_2.html' %}
 
 {% endblock contenido %}

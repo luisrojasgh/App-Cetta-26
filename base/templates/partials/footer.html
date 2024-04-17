@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2 text-center">
-          
+          <!-- De esta forma django referencia un link definido en url patterns  -->
           <a href="{% url 'productos' %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Ir a sección de productos"><img src="{% static 'img/logo-d1.png' %}" alt=" Logo de la empresa" class="w-100" class="h-100"></a>
         </div>
         <div class="col-md-5">
@@ -20,7 +20,7 @@
       </div>
     </div>    
     <div class="row bg-dark">
-        <div class="col-md-1 text-center mt-1">
+        <div class="col-md-1 text-center mt-1"> <!-- Iconos con iconos de bootstrap y tooltips -->
           <a href="https://www.facebook.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Red social facebook">{% bs_icon 'facebook' %}</a>
         </div>
         <div class="col-md-1 text-center mt-1">
