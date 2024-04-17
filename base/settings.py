@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'comercial.context_processors.carrito.carrito',
+                'comercial.context_processors.info_carrito.subtotal_carrito',
             ],
         },
     },
