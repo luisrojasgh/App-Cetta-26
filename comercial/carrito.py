@@ -17,14 +17,19 @@ class Carrito:
                 "producto_id":producto.id,
                 "nombre":producto.nombre,
                 "categoria":producto.categoria,
+                "descuento":int(producto.descuento),
                 "precio":int(producto.precio),
-                "cantidad":1
+                "precio_con_descuento":int(producto.precio_con_descuento),
+                "cantidad":1,
             }
         else:
             for key, value in self.carrito.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]+1
-                    value["precio"]=int(value["precio"])+producto.precio
+                    if value["descuento"] > 0:
+                        value["precio"]=int(value["precio_con_descuento"])*value["cantidad"]
+                    else:
+                        value["precio"]=int(value["precio"])*value["cantidad"]
                     break
         self.guardar_carrito()
 

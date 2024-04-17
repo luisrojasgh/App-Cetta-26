@@ -33,7 +33,12 @@
               <tr>
                 <td>{{value.cantidad}}</td>
                 <td>{{value.nombre}}</td>
-                <td>$ {{value.precio}}</td>
+                {% if value.descuento > 0 %}
+                  <td>$ {{value.precio_con_descuento}}</td>
+                {% else %}
+                  <td>$ {{value.precio}}</td>
+                {% endif %}
+
                 {% if value.categoria == 'CALZADO' %}
                   <td>
                     <select class="form-select form-select-sm" aria-label="Small select example">
