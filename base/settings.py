@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'configuracion',
     'exhibicion',
     'comercial',
+    'comunicaciones',
     'django_bootstrap5',# pip install django-bootstrap5
     'crispy_forms', # pip install django-crispy-forms
     'django_bootstrap_icons',#pip install django-bootstrap-icons
@@ -142,3 +143,10 @@ MEDIA_ROOT= os.path.join(BASE_DIR, "media/")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'luisvillegas1isi@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True'''
