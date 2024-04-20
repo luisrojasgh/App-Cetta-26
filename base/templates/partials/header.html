@@ -4,7 +4,7 @@
 <header class="bg-dark bg-gradient">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
-            <div class="container">
+            <div class="container"> <!-- De esta forma django referencia un link definido en url patterns  -->
               <a class="navbar-brand" href= "{% url 'index' %}">
                 <p class="fs-2" data-bs-toggle="tooltip" data-bs-placement="right" title="Inicio">{% bs_icon 'house-door' %}Cetta</p>
               </a>
@@ -13,7 +13,7 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated %} <!-- De esta forma django define la logica, sin el usuario está autenticado  -->
                   <p></p>
                   {% else %}
                     <li class="nav-item">
@@ -43,7 +43,7 @@
                   {% if user.is_authenticated %}
                   <div class="btn-group">
                     <button class="btn btn-secondary bg-gradient btn-sm" type="button">{% bs_icon 'person-circle' %}
-                      {{user.first_name}}
+                      {{user.first_name}} <!-- De esta forma django muestra variables desde el modelo  -->
                     </button>
                     <button type="button" class="btn btn-sm btn-dark bg-gradient dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                       <span class="visually-hidden">Toggle Dropdown</span>

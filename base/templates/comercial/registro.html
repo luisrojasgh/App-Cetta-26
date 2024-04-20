@@ -17,7 +17,7 @@
 
 <div class="container w-75 bg-dark bg-opacity-10 bg-gradient rounded shadow-sm mt-2 mb-2">
   {% if messages %}
-  {% for message in messages %}
+  {% for message in messages %} <!-- Clase alert condicionada según el tag del mensaje -->
     <div class="alert alert-dismissible fade show fw-bold {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}" role="alert">
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       {{ message }}
@@ -30,7 +30,7 @@
           <h4 class="text-center">¿Ya estás registrado/a? <a href="{% url 'login' %}">Ingresa aquí</a></h4>
           <form method="POST">
             {% csrf_token %}
-            {{ form }}
+            {{ form }} <!-- Renderiza el formulario definido en forms.py y en views -->
             <button type="submit" class="btn btn-primary mt-3 mb-4 px-4 shadow">Registrarse</button>
             <a href="{% url 'index' %}"><button type="button" class="btn btn-primary mt-3 mb-4 px-4 shadow">Cancelar</button></a>
           </form>    

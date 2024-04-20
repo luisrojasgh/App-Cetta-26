@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cetta - {{titulo}}</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    {% bootstrap_css %} <!-- Carga css -->
+    {% bootstrap_javascript %} <!-- Carga javascript -->
     {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'Swiper/swiper-bundle.min.css' %}"/>{% endcomment %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
@@ -15,7 +15,7 @@
     <!- para las alertas ->
     {% comment %} <link href="{% static 'Toastr/css/toastr.min.css' %}" rel="stylesheet"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/mis_estilos.css' %}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Carga Jqery para trabajar con los modales -->
 </head>
 <body class="bg-success bg-opacity-10 bg-gradient">
     {% include 'partials/header.html' %}
