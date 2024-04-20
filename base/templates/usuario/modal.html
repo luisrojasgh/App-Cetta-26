@@ -59,14 +59,14 @@
           </tbody>
         </table>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"> <!-- A la url actualizar datos se le pasa el Id del user como argumento  -->
           <button id="botonCerrarActualizar" type="button" class="btn btn-secondary bg-gradient" data-dismiss="modal">Cerrar</button>
           <a href="{% url 'actualizar_datos' user.id %}"><button type="button" class="btn btn-warning bg-gradient">Editar datos</button></a>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
-
+  <!-- Scripts de javascript y Jquery para el funcionamiento de modales  -->
   <script>
     $(document).ready(function(){
       // Evento click para abrir el modal
