@@ -1,4 +1,4 @@
-from exhibicion.models import Producto
+#from exhibicion.models import Producto
 
 # carrito.py
 class Carrito:
