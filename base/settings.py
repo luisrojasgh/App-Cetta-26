@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'exhibicion',
     'comercial',
     'comunicaciones',
+    'ventas',
     'django_bootstrap5',# pip install django-bootstrap5
     'crispy_forms', # pip install django-crispy-forms
     'django_bootstrap_icons',#pip install django-bootstrap-icons
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'comercial.context_processors.carrito.carrito',
                 'comercial.context_processors.info_carrito.subtotal_carrito',
+                'comercial.context_processors.total_carrito.total_carrito'
             ],
         },
     },
