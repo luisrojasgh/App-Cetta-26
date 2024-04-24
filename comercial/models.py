@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from exhibicion.models import Producto
-from django.db.models import F, Sum, IntegerField
+#from django.db.models import F, Sum, IntegerField
 """ from django.contrib.auth.models import User """
 
 # Modelo Usuario, extendido desde la clase abstracta AbstractUser. Sobresescribe el modelo User propio de django.
@@ -54,7 +54,6 @@ class Usuario(AbstractUser):
     
 
 class Compra(models.Model):
-    IVA = 19
     id = models.AutoField(primary_key=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, blank=False)
@@ -62,34 +61,14 @@ class Compra(models.Model):
         ENTREGADA='1',_("Entregada")
         NO_ENTREGADA='0',_("No entregada")
     estado=models.CharField(max_length=2,choices=Estado.choices,verbose_name="Estado",default='0')
-    #iva = models.IntegerField(default=19)
-    subtotal = models.IntegerField()
+    total = models.IntegerField()
 
-    @property
-    def subtotal_compra(self):
-        return self.itemcompra_set.aggregate(
-
-            subtotal_compra=Sum(F("precio")*F("cantidad"), output_field=IntegerField())
-
-        )["subtotal_compra"] or IntegerField(0)
-    
-    @property
-    def calcular_total(self):
-        # Calcular el precio con el IVA aplicado.
-        total = (self.subtotal)+((self.subtotal*self.IVA)/100)
-        return total
-
-    """ @property
-    def calcular_total(self):
-        # Calcular el precio con el IVA aplicado.
-        total = (self.subtotal)+((self.subtotal*self.iva)/100)
-        return total """
     
     def mostrar_datos(self):
-        return f"Factura de compra # {self.id}, con valor de: {self.calcular_total}, realizada el: {self.fecha_creacion}. Usuario: {self.usuario} "
+        return f"Compra N° {self.id}, con valor de: {self.total}, realizada el: {self.fecha_creacion}. Usuario: {self.usuario.first_name} {self.usuario.last_name} "
 
     def __str__(self):
-        return f"Compra # {self.id} - Usuario: {self.usuario.username} - Fecha: {self.fecha_creacion} - subtotal: {self.subtotal}"
+        return f"Compra N° {self.id} - Usuario: {self.usuario.username} - Fecha: {self.fecha_creacion} - Total: {self.total}"
 
 class ItemCompra(models.Model):
     id = models.AutoField(primary_key=True)
@@ -99,7 +78,7 @@ class ItemCompra(models.Model):
     cantidad = models.IntegerField(default=1)
 
     def __str__(self):
-        return f'Cantidad: {self.cantidad} - Nombre:  {self.producto.nombre} Valor: {self.producto.precio}'
+        return f'Cantidad: {self.cantidad} - Nombre:  {self.producto.nombre} Valor: {self.producto.precio} - {self.fecha_creacion} - Compra N°: {self.compra.id}'
     
 
 

@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from comercial.models import Compra, ItemCompra
 from comercial.carrito import Carrito
 from django.contrib import messages
-from comercial.context_processors.info_carrito import subtotal_carrito
+from comercial.context_processors.total_carrito import total_carrito
 
 def realizar_compra(request):
     carrito = Carrito(request)
-    dato_del_subtotal = subtotal_carrito(request)
-    subtotal = dato_del_subtotal['subtotal']
-    compra = Compra.objects.create(usuario=request.user, subtotal=subtotal)
+    dato_del_total = total_carrito(request)
+    total = dato_del_total['total']
+    compra = Compra.objects.create(usuario=request.user, total=total)
     #carro = request.session.carrito
     items = list()
     for key, value in carrito.carrito.items():
@@ -28,7 +28,8 @@ def realizar_compra(request):
         email=request.user.email,
     ) """
 
-    messages.success(request, 'Tu compra ha sido realizada exitosamente.')
+    carrito.vaciar_carrito()
+    messages.success(request, f'Tu compra por $ {total}, ha sido realizada exitosamente.')
 
     return redirect('productos')
 

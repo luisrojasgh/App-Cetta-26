@@ -1,5 +1,6 @@
-def subtotal_carrito(request):
+def total_carrito(request):
     subtotal=0
+    total=0
     if request.user.is_authenticated:
         carrito = request.session.get('carrito', {})
         for producto in carrito.values():
@@ -7,5 +8,5 @@ def subtotal_carrito(request):
                 subtotal=subtotal+int(producto["precio_con_descuento"])
             else:
                 subtotal=subtotal+int(producto["precio"]) 
-                          
-    return {"subtotal":subtotal}
+        total = subtotal+(subtotal*0.19)                 
+    return {"total":total}
