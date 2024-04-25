@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from comercial.models import Compra, ItemCompra
 from comercial.carrito import Carrito
 from django.contrib import messages
@@ -32,5 +33,22 @@ def realizar_compra(request):
     messages.success(request, f'Tu compra por $ {total}, ha sido realizada exitosamente.')
 
     return redirect('productos')
+
+@login_required
+def ver_mis_compras(request):
+    titulo ='Tus Compras'
+    id = request.user.id
+    compras_usuario = Compra.objects.filter(usuario_id=id)
+
+    context={
+        'titulo':titulo,
+        'compras_usuario':compras_usuario
+    }
+    
+    return render(request,'comercial/mis_compras.html',context)
+
+
+
+
 
     

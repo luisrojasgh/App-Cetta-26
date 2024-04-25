@@ -1,0 +1,39 @@
+{% extends 'partials/body.html' %}
+
+{% block contenido %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-hover caption-top">
+                <caption class="text-dark">Tus Compras</caption>
+                <thead>
+                    <tr class="table-secondary">
+                        <th>N°</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Valor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-info">
+                    {% for compra in compras_usuario %}
+                        <tr>
+                            <td>{{compra.id}}</td>
+                            <td>{{compra.fecha_creacion}}</td>
+                            {% if  compra.estado == '1' %}
+                                <td>Entregada</td>
+                            {% else %}
+                                <td>No entregada</td>
+                            {% endif %}
+                            <td>$ {{compra.total}}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}
