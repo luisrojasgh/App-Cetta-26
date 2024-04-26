@@ -93,7 +93,7 @@
             </tbody>
             {% if request.session.carrito.items %}
               <tfoot>
-                <td colspan="3"><h6>Total: $ {{ subtotal }} + IVA = $ <b>{{total}}</b><h6></td>
+                <td colspan="3"><h6>Total: $ {{ subtotal }} + Iva = $ <b>{{total}}</b><h6></td>
                 <td><a href="{% url 'comprar' %}" class="btn btn-light btn-sm">Comprar</a></td>
                 <td><a href="{% url 'vaciar_carrito' %}" class="btn btn-light btn-sm">Vaciar carrito</a></td>
               </tfoot>
