@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="{% static 'Swiper/swiper-bundle.min.css' %}"/>{% endcomment %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
 
+    <!- para las datatables ->
+    <link href="{% static 'DataTables/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'DataTables/DateTime/dataTables.dateTime.min.css' %}" rel="stylesheet">
+    <link href="{% static 'DataTables/DateTime/jquery.dataTables.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'DataTables/Responsive-2.5.0/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+
     <!- para las alertas ->
     {% comment %} <link href="{% static 'Toastr/css/toastr.min.css' %}" rel="stylesheet"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/mis_estilos.css' %}"/>
@@ -24,6 +30,17 @@
         
     {% endblock contenido %}
     {% include 'partials/footer.html' %}
-        
+    
+    <!- para las datatables ->
+    <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'DataTables/DateTime/jquery-3.7.0.js' %}"></script>
+
+    <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+
+    <script src="{% static 'DataTables/DateTime/dataTables.dateTime.min.js' %}"></script>
+    <script src="{% static 'DataTables/DateTime/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'DataTables/DateTime/moment.min.js' %}"></script>
+    <script src="{% static 'DataTables/datatables-config.js' %}"></script>
 </body>
 </html>
