@@ -2,7 +2,7 @@
 
 {% block contenido %}
 
-<div class="container h-100 w-75">
+<div class="container h-100 w-75 mt-3">
     <div class="row">
         <div class="col">
             {% if not compras_usuario %}
@@ -11,7 +11,7 @@
                 <br>
                 <br>
             {% else %}
-            <table class="table table-striped table-hover caption-top">
+            <table class="table table-striped table-hover caption-top w-100" id="tabla-usuarios" class="display-nowrap">
                 <caption class="text-dark">Tus Compras</caption>
                 <thead>
                     <tr class="table-secondary">
@@ -33,7 +33,7 @@
                                 <td>No entregada</td>
                             {% endif %}
                             <td>$ {{compra.total}}</td>
-                            <td></td>
+                            <td><a href="{% url 'detalle-compra' compra.id %}" class="btn btn-secondary btn-md">Ver orden/envío</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -43,11 +43,6 @@
     
     </div>
     <div class="row">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <br>
         <br>
         <br>

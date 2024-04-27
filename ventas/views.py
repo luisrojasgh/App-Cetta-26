@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from comercial.models import Compra, ItemCompra
 from comercial.carrito import Carrito
@@ -46,6 +46,20 @@ def ver_mis_compras(request):
     }
     
     return render(request,'comercial/mis_compras.html',context)
+
+@login_required
+def detalle_compra(request, compra_id):
+    compra = get_object_or_404(Compra, pk=compra_id)
+    detalles = ItemCompra.objects.filter(compra=compra)
+    titulo = 'Detalle compra'
+
+    context={
+        'titulo': titulo,
+        'detalles': detalles,
+        'compra': compra
+    }
+
+    return render(request, 'comercial/detalle_compra.html', context)
 
 
 
