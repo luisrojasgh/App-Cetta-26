@@ -5,6 +5,7 @@ from comercial.carrito import Carrito
 from django.contrib import messages
 from comercial.context_processors.total_carrito import total_carrito
 
+@login_required(login_url='/comercial/login')
 def realizar_compra(request):
     carrito = Carrito(request)
     dato_del_total = total_carrito(request)
@@ -34,7 +35,7 @@ def realizar_compra(request):
 
     return redirect('productos')
 
-@login_required
+@login_required(login_url='/comercial/login')
 def ver_mis_compras(request):
     titulo ='Tus Compras'
     id = request.user.id
@@ -47,7 +48,7 @@ def ver_mis_compras(request):
     
     return render(request,'comercial/mis_compras.html',context)
 
-@login_required
+@login_required(login_url='/comercial/login')
 def detalle_compra(request, compra_id):
     compra = get_object_or_404(Compra, pk=compra_id)
     detalles = ItemCompra.objects.filter(compra=compra)
