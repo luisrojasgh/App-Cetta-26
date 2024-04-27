@@ -39,12 +39,9 @@ class Usuario(AbstractUser):
         else:
             return Usuario.objects.none()
     
+    @property
     def direccion_completa(self):
-    
-        partes = [self.direccion, self.barrio_vereda, self.municipio]
-        direccion_completa = ', '.join(parte for parte in partes if parte)
-        
-        return direccion_completa or 'No disponible'
+        return f"Municipio: {self.municipio.title()}, {self.direccion.title()}; barrio o vereda: {self.barrio_vereda.title()}"
     
     def clean(self):
         self.first_name= self.first_name.title()
