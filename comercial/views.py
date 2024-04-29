@@ -78,6 +78,7 @@ def registro_usuario(request):
     return render(request, "comercial/registro.html", context)
 
 # Función para actualizar los datos del usuario. se valida que el documento no pertenezca a otro usuario.    
+@login_required(login_url='/comercial/login')
 def actualizar_datos(request, id):
     user = Usuario.objects.get(id = id)
     titulo="Actualización de datos"
@@ -139,6 +140,7 @@ def actualizar_datos(request, id):
     return render(request, "usuario/actualizar_datos.html", context)
 
 # Función para eliminar usuarios: Cerrar la cuenta del usuario.
+@login_required(login_url='/comercial/login')
 def cerrar_cuenta_usuario(request, id):
     user = Usuario.objects.get(id = id)
     user.delete()

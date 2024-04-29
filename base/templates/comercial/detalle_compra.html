@@ -1,49 +1,60 @@
-{% extends 'partials/body.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <style>
+        table {
+            width: 75%;
+            margin-bottom: 10px;
+            background-color: rgba(247, 180, 214, 0.8); 
+        }
+        
+        th, td {
+            border: 1px solid #dfcce4;
+            padding: 4px;
+            text-align: center;
+        }
+    </style>
+    <body>
+    
+        <h1>Detalle de Compra</h1>
+        <hr>
+        <p>Compra N°: {{ compra.id }}</p>
+        <p>Fecha de Creación: {{ compra.fecha_creacion }}</p>
+        <p>Estado: {% if compra.estado == '1' %} Entregada {% else %} No entregada {% endif %}</p>
+        <p>Valor Total. Iva incluido: $ {{ compra.total }}</p>
 
-{% block contenido %}
-
-<div class="container h-100 w-75 mt-3">
-    <div class="row">
-        <div class="col">
-
-            <h1>Detalle de Compra</h1>
-            <hr>
-            <p>Compra N°: {{ compra.id }}</p>
-            <p>Fecha de Creación: {{ compra.fecha_creacion }}</p>
-            <p>Estado: {% if compra.estado == '1' %} Entregada {% else %} No entregada {% endif %}</p>
-            <p>Valor Total. Iva incluido: $ {{ compra.total }}</p>
-
-            <h2>Detalles:</h2>
-            <table>
-                <thead>
+        <h2>Detalles:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detalle in detalles %}
                     <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio Unitario</th>
+                        <td>{{ detalle.producto.nombre }}</td>
+                        <td>{{ detalle.cantidad }}</td>
+                        <td>$ {{ detalle.producto.precio_con_descuento }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {% for detalle in detalles %}
-                        <tr>
-                            <td>{{ detalle.producto.nombre }}</td>
-                            <td>{{ detalle.cantidad }}</td>
-                            <td>$ {{ detalle.producto.precio_con_descuento }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <hr>
-            <br>
-            <h1>Envío</h1>
-            <hr>
-            <p>Nombre de usuario: {{ compra.usuario.get_nombre_completo }}</p>
-            <p>Tipo documento: {{ compra.usuario.tipo_documento }}</p>
-            <p>Documento: {{ compra.usuario.documento }}</p>
-            <p>Teléfono fijo: {{ compra.usuario.numero_telefono }}</p>
-            <p>Teléfono celular: {{ compra.usuario.numero_celular }}</p>
-            <p>Entregar en: {{ compra.usuario.direccion_completa }}</p>
-            
-        </div>
-    </div>
-</div>  
-{% endblock contenido %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+        <br>
+        <h1>Envío</h1>
+        <hr>
+        <p>Nombre de usuario: {{ compra.usuario.get_nombre_completo }}</p>
+        <p>Tipo documento: {{ compra.usuario.tipo_documento }}</p>
+        <p>Documento: {{ compra.usuario.documento }}</p>
+        <p>Teléfono fijo: {{ compra.usuario.numero_telefono }}</p>
+        <p>Teléfono celular: {{ compra.usuario.numero_celular }}</p>
+        <p>Entregar en: {{ compra.usuario.direccion_completa }}</p>
+                           
+    </body>
+</html>
